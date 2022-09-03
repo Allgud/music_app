@@ -302,6 +302,7 @@ body {
   border: 1px solid #FFFFFF;
   border-radius: 60px;
   padding: 6px 20px;
+  cursor: pointer;
 }
 
 .filter__button:not(:last-child) {
@@ -869,3 +870,4 @@ body {
 .volume__progress-line {
   width: 109px;
 }
+/*# sourceMappingURL=style.css.map */
