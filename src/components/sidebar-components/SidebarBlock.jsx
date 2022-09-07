@@ -5,11 +5,7 @@ import img1 from '../../img/playlist01.png'
 import img2 from '../../img/playlist02.png'
 import img3 from '../../img/playlist03.png'
 
-const list = [
-    {link: img1},
-    {link: img2},
-    {link: img3}
-]
+const list = [ img1, img2, img3 ]
 
 function SidebarBlock() {
     const imgList = list.map((elem, i) => {
