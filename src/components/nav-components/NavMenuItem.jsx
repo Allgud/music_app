@@ -1,10 +1,10 @@
 import React from "react";
 
-function NavMenuItem({obj}) {
+function NavMenuItem({ link, title }) {
     
     return (
         <li className="menu__item">
-            <a href={obj.link} className="menu__link">{obj.title}</a>
+            <a href={link} className="menu__link">{title}</a>
         </li>
     )
 }
