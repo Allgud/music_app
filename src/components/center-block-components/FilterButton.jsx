@@ -1,8 +1,8 @@
 import React from "react";
 
-function FilterButton({ content }) {
+function FilterButton({ content, selector }) {
     return (
-        <div className={"filter__button _btn-text" + content.cls}>{content.content}</div>
+        <div className={`filter__button _btn-text ${selector}`}>{content}</div>
     )
 }
 

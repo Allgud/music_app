@@ -15,9 +15,11 @@ const tracks = [
 ]
 
 function PlayList() {
-    const trackList = tracks.map((elem, i) => {
-        return <Track key={i} track={elem} />
-    })
+    const trackList = tracks.map((elem, i) => (
+        <Track 
+            key={i} 
+            track={elem} />
+    ))
 
     return (
         <div className="content__playlist playlist">

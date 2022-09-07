@@ -2,17 +2,24 @@ import React from 'react'
 import FilterButton from './FilterButton'
 
 const buttonsContent = [
-    { cls: 'button-author', content: 'исполнителю'},
-    { cls: 'button-year', content: 'году выпуска'},
-    { cls: 'button-genre', content: 'жанру'}
+    { selector: 'button-author', content: 'исполнителю'},
+    { selector: 'button-year', content: 'году выпуска'},
+    { selector: 'button-genre', content: 'жанру'}
 ]
 
 function FilterButtonsList() {
-    const filterButtons = buttonsContent.map((elem, i) => <FilterButton key={i + 1} content={elem}/>)
 
     return (
         <>
-            {filterButtons}
+            {
+                buttonsContent.map((elem, i) => (
+                    <FilterButton 
+                        key={i + 1} 
+                        content={elem.content} 
+                        selector={elem.selector}
+                    />
+                ))
+            }
         </>
     )
 }
