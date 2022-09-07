@@ -1,8 +1,17 @@
 import React from "react";
+import Bar from "./Bar";
+import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   return ( 
-    <h1>Hello world!</h1>
+    <div className="wrapper">
+      <div className="container">
+        <Main />
+        <Bar />
+        <Footer />
+      </div>
+    </div> 
   )
 }
 
