@@ -8,14 +8,15 @@ import img3 from '../../img/playlist03.png'
 const list = [ img1, img2, img3 ]
 
 function SidebarBlock() {
-    const imgList = list.map((elem, i) => {
-        return <SidebarButton key={i + 1} img={elem} />
-    })
 
     return (
         <div className="sidebar__block">
             <div className="sidebar__list">
-                {imgList}
+                {
+                    list.map((elem, i) => {
+                        return <SidebarButton key={i + 1} img={elem} />
+                    })
+                }
             </div>
         </div>
     )
