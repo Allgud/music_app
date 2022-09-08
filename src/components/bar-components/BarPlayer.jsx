@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from '../context/context'
 import PlayerControls from "./PlayerControls";
 import TrackPlayInfo from "./TrackPlayInfo";
+import TrackPlayInfoSceleton from "./TrackPlayInfoSkeleton";
 
 function BarPlayer() {
+    const loading = useContext(Context)
+
     return (
         <div className="bar__player player">
             <PlayerControls />
-            <TrackPlayInfo />
+            {loading ? <TrackPlayInfoSceleton /> : <TrackPlayInfo />}
         </div>
     )
 }
