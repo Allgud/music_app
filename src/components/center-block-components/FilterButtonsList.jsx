@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FilterButton from './FilterButton'
 
 const buttonsContent = [
@@ -8,20 +8,26 @@ const buttonsContent = [
 ]
 
 function FilterButtonsList() {
+    const [state, setState] = useState(buttonsContent)
 
-    const handleActiveBtn = (el) => {
-        console.log(el);
-    } 
+    const handleClickedBtn = (btn) => {
+        const classList = btn.classList.value.split(' ')
+        const newState = state.map(el => {
+            return classList.includes(el.selector) ? {...el, isActive: !el.isActive} : {...el, isActive: false}
+        })
+        setState(newState)
+    }
 
     return (
         <>
             {
-                buttonsContent.map((elem, i) => (
+                state.map((elem, i) => (
                     <FilterButton 
                         key={i + 1} 
                         content={elem.content} 
                         selector={elem.selector}
-                        handleActive={handleActiveBtn}
+                        handleClick={handleClickedBtn}
+                        active={elem.isActive}
                     />
                 ))
             }
