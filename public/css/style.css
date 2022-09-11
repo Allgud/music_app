@@ -323,6 +323,10 @@ body {
   line-height: 24px;
 }
 
+.filter {
+  position: relative;
+}
+
 .filter__title {
   font-style: normal;
   font-weight: 400;
@@ -349,6 +353,95 @@ body {
 
 .filter__button:not(:last-child) {
   margin-right: 10px;
+}
+
+.filter__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 34px;
+  gap: 40px;
+  width: 248px;
+  max-height: 305px;
+  background: #313131;
+  border-radius: 12px;
+  position: absolute;
+  top: 50px;
+  overflow: auto;
+}
+
+.filter__list--author {
+  left: 90px;
+}
+
+.filter__list--genre {
+  left: 390px;
+}
+
+.filter__list--year {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 403px;
+  height: 92px;
+  gap: 14px;
+  background-color: #313131;
+  border-radius: 12px;
+  position: absolute;
+  top: 50px;
+  left: 240px;
+}
+
+.filter__item:hover {
+  color: #AD61FF;
+  text-decoration: underline;
+}
+
+.filter__items--year {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0px;
+  gap: 24px;
+  width: 100%;
+}
+
+.filter__item--year {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 14px;
+}
+
+.filter__item--year label {
+  white-space: nowrap;
 }
 
 .content__title {
