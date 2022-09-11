@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 function App() {
   const [loading, setLoading] = useState(false)
-  
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false)
