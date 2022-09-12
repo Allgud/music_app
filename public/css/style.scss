@@ -1,3 +1,5 @@
+@import 'skeletons';
+
 * {
     margin: 0;
     padding: 0;
@@ -263,6 +265,7 @@ body {
 }
 
 .filter {
+    position: relative;
 
     &__title {
         font-style: normal;
@@ -282,8 +285,75 @@ body {
         padding: 6px 20px;
         cursor: pointer;
 
+        &--active {
+            border-color: #9A48F1;
+            color: #B672FF;
+        }
+
         &:not(:last-child) {
             margin-right: 10px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px;
+        gap: 40px;
+        width: 248px;
+        max-height: 305px;
+        background: #313131;
+        border-radius: 12px;
+        position: absolute;
+        top: 50px;
+        overflow: auto;
+
+        &--author {
+            left: 90px;
+        }
+
+        &--genre {
+            left: 390px;
+        }
+
+        &--year {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 403px;
+            height: 92px;
+            gap: 14px;
+            background-color: #313131;
+            border-radius: 12px;
+            position: absolute;
+            top: 50px;
+            left: 240px
+        }
+    }
+
+    &__item:hover {
+        color: #AD61FF;
+        text-decoration: underline;
+    }
+    
+    &__items--year {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        gap: 24px;
+        width: 100%;
+    }
+
+    &__item--year {
+        display: flex;
+        gap: 14px;
+
+        & label {
+            white-space: nowrap;
         }
     }
 }

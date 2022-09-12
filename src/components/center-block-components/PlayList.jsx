@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../context/context";
 import Track from "./Track";
+import TrackSceleton from "./TrackSkeleton";
 
 const tracks = [
     {title: 'Guilt', author: 'Nero', album: 'Welcome Reality', year: '2020', time: '4:44', advInfo: ''},
@@ -15,15 +17,14 @@ const tracks = [
 ]
 
 function PlayList() {
-    const trackList = tracks.map((elem, i) => (
-        <Track 
-            key={i} 
-            track={elem} />
-    ))
+    const loading = useContext(Context)
 
+    const skeletons = Array(tracks.length).fill("", 0, 10).map((_, i) => <TrackSceleton key={i}/>)
+    const trackList = tracks.map((elem, i) => (<Track key={i} track={elem} />))
+   
     return (
         <div className="content__playlist playlist">
-            {trackList}
+            {loading ? skeletons: trackList }
         </div>
     )
 }

@@ -1,8 +1,22 @@
 import React from "react";
+import FilterList from "./FilterList";
 
-function FilterButton({ content, selector }) {
+function FilterButton({ content, selector, handleClick, active}) {
+    const activeButton = 'filter__button--active'
+    const baseCls = `filter__button _btn-text ${selector}`
+    
+
     return (
-        <div className={`filter__button _btn-text ${selector}`}>{content}</div>
+        <>
+            <div
+                className={active ? baseCls + ' ' + activeButton : baseCls} 
+                onClick={event => handleClick(event.target)}
+            >
+                {content}
+                
+            </div>
+            {active && <FilterList filter={selector}/> }
+        </>
     )
 }
 

@@ -1,8 +1,12 @@
 import React from "react";
 
-function Burger() {
+function Burger({handleView}) {
+
     return (
-        <div className="nav__burger burger">
+        <div 
+            className="nav__burger burger"
+            onClick={handleView}
+        >
             <span className="burger__line"></span>
             <span className="burger__line"></span>
             <span className="burger__line"></span>
