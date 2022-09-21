@@ -1,0 +1,23 @@
+.track-play {
+
+    &__svg {
+        width: 18px;
+        height: 17px;
+        fill: transparent;
+        stroke: #4E4E4E;
+    }
+
+    &__like-svg {
+        width: 14px;
+        height: 12px;
+        fill: transparent;
+        stroke: #696969;
+    }
+
+    &__dislike-svg {
+        width: 14.34px;
+        height: 13px;
+        fill: transparent;
+        stroke: #696969;
+    }
+}

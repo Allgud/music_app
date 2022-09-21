@@ -5,9 +5,9 @@ import noteSvg from '../../img/icon/note.svg'
 
 function NoteIcon({cls}) {
     return (
-        <HandySvg 
+        <HandySvg
             src={noteSvg}
-            className={cls}
+            className ={cls}
             alt='music'
         />
     )

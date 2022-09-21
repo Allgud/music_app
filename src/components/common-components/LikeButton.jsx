@@ -4,7 +4,7 @@ import likeSvg from '../../img/icon/like.svg'
 
 function LikeButton({cls}) {
     return (
-        <HandySvg 
+        <HandySvg
             src={likeSvg}
             className={cls}
             alt='like'
