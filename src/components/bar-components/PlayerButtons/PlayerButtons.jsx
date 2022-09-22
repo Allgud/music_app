@@ -8,66 +8,70 @@ import repeatSvg from '../../../img/icon/repeat.svg'
 import shuffleSvg from '../../../img/icon/shuffle.svg'
 import volumeSvg from '../../../img/icon/volume.svg'
 
-import style from './PlayerButtons.module.scss'
-
 import * as S from './styles'
 
 export const NextBtn = () => (
     <S.NextBtn>
-        <HandySvg 
-            src={nextSvg}
-            className={style['player__btn-next-svg']}
-            alt="next"
-        />
+        <S.NextBtnSvg>
+            <HandySvg 
+                src={nextSvg}
+                alt="next"
+            />
+        </S.NextBtnSvg>
     </S.NextBtn>
 )
 
 export const PrevBtn = () => (
     <S.PrevBtn>
-        <HandySvg 
-            src={prevSvg}
-            className={style['player__btn-prev-svg']}
-            alt="prev"
-        />
+        <S.PrevBtnSvg>
+            <HandySvg 
+                src={prevSvg}
+                alt="prev"
+            />
+        </S.PrevBtnSvg>
     </S.PrevBtn>
 )
 
 export const PlayBtn = () => (
     <S.PlayBtn>
-        <HandySvg 
-            src={playSvg}
-            className={style["player__btn-play-svg"]}
-            alt="play"
-        />
+        <S.PlayBtnSvg>
+            <HandySvg 
+                src={playSvg}
+                alt="play"
+            />
+        </S.PlayBtnSvg>
     </S.PlayBtn>
 )
 
 export const RepeatBtn = () => (
     <S.RepeatBtn>
-        <HandySvg 
-            src={repeatSvg}
-            className={style["player__btn-repeat-svg"]}
-            alt="repeat"
-        />
+        <S.RepeatBtnSvg>
+            <HandySvg 
+                src={repeatSvg}
+                alt="repeat"
+            />
+        </S.RepeatBtnSvg>
     </S.RepeatBtn>
 )
 
 export const ShuffleBtn = () => (
     <S.ShuffleBtn>
-        <HandySvg 
-            src={shuffleSvg}
-            className={style["player__btn-shuffle-svg"]}
-            alt="shuffle"
-        />
+        <S.ShuffleBtnSvg>
+            <HandySvg 
+                src={shuffleSvg}
+                alt="shuffle"
+            />
+        </S.ShuffleBtnSvg>
     </S.ShuffleBtn>
 )
 
 export const VolumeImage = () => (
     <S.VolumeImage>
-        <HandySvg 
-            src={volumeSvg}
-            className={style['volume__svg']}
-            alt='volume'
-        />
+        <S.VolumeImageSvg>
+            <HandySvg 
+                src={volumeSvg}
+                alt='volume'
+            />
+        </S.VolumeImageSvg>
     </S.VolumeImage>
 )

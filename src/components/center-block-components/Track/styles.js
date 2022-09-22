@@ -30,6 +30,13 @@ export const TrackTitleImage = styled.div`
     margin-right: 17px;
 `
 
+export const TrackTitleImageSvg = styled.svg`
+    width: 18px;
+    height: 17px;
+    fill: transparent;
+    stroke: #4E4E4E;
+`
+
 export const TrackTitleText = styled.div`
     display: block
 `
@@ -88,6 +95,14 @@ export const TrackTimeText = styled.span`
 
 export const TrackTime = styled.div`
     display: block
+`
+
+export const TrackTimeSvg = styled.svg`
+    width: 14px;
+    height: 12px;
+    margin-right: 17px;
+    fill: transparent;
+    stroke: #696969;
 `
 
 export const TrackImgSkeleton = styled.div`

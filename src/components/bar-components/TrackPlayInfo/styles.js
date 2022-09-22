@@ -24,6 +24,13 @@ export const TrackPlayImage = styled.div`
     grid-area: image;
 `
 
+export const TrackPlayImageSvg = styled.svg`
+    width: 18px;
+    height: 17px;
+    fill: transparent;
+    stroke: #4E4E4E;
+`
+
 export const TrackPlayAuthor = styled.div`
     grid-area: author;
     min-width: 49px;
@@ -73,6 +80,20 @@ export const TrackPlayLike = styled.div`
     }
 `
 
+export const TrackPlayLikeSvg = styled.svg`
+    width: 14px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+`
+
 export const TrackPlayDislike = styled(TrackPlayLike)`
     margin-left: 28.5px;
+`
+
+export const TrackPlayDislikeSvg = styled.svg`
+    width: 14.34px;
+    height: 13px;
+    fill: transparent;
+    stroke: #696969;
 `

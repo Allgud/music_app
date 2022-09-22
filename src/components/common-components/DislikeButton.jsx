@@ -3,11 +3,10 @@ import {HandySvg} from 'handy-svg'
 
 import dislikeSvg from '../../img/icon/dislike.svg'
 
-function DislikeButton({cls}) {
+function DislikeButton() {
     return (
         <HandySvg 
             src={dislikeSvg}
-            className={cls}
             alt='dislike'
         />
     )

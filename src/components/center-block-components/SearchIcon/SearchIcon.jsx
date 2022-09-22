@@ -1,14 +1,15 @@
 import React from 'react'
 import { HandySvg } from 'handy-svg'
 import icon from '../../../img/icon/search.svg'
-import style from './SearchIcon.module.scss'
+import * as S from './styles'
 
 function SearchIcon() {
     return (
-        <HandySvg
-            src={icon}
-            className={style.search__svg}
-        /> 
+        <S.SearchIconSvg>
+            <HandySvg
+                src={icon}
+            /> 
+        </S.SearchIconSvg>
     )
 }
 

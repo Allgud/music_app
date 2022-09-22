@@ -1,7 +1,6 @@
 import React from "react";
 // import LikeButton from "../../common-components/LikeButton";
 import NoteIcon from '../../common-components/NoteIcon'
-import stylesSvg from './Track.module.scss'
 import * as S from './styles'
 import LikeButton from "../../common-components/LikeButton";
 
@@ -12,7 +11,9 @@ function Track({ track }) {
             <S.PlayListTrack>
                 <S.TrackTitle>
                     <S.TrackTitleImage>
-                        <NoteIcon cls={stylesSvg['track__title-svg']}/>
+                        <S.TrackTitleImageSvg>
+                            <NoteIcon />
+                        </S.TrackTitleImageSvg>
                     </S.TrackTitleImage>
                     <S.TrackTitleText>
                         <S.TrackTitleLink>
@@ -30,7 +31,9 @@ function Track({ track }) {
                     <S.TrackAlbumLink>{track.album}</S.TrackAlbumLink>
                 </S.TrackAlbum>
                 <S.TrackTime>
-                    <LikeButton cls={stylesSvg['track__time-svg']}/>
+                    <S.TrackTimeSvg>
+                        <LikeButton />
+                    </S.TrackTimeSvg>
                     <S.TrackTimeText>{track.time}</S.TrackTimeText>
                 </S.TrackTime>
             </S.PlayListTrack>

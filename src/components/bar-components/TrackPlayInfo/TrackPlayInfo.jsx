@@ -3,7 +3,6 @@ import NoteIcon from '../../common-components/NoteIcon'
 import LikeButton from '../../common-components/LikeButton'
 import {ImgSkeleton, TrackPlayLinkSkeleton} from '../TrackPlayInfoSkeleton/TrackPlayInfoSkeletons'
 
-import stylesSvg from './TrackPlayInfo.module.scss'
 import * as S from './styles'
 import DislikeButton from "../../common-components/DislikeButton";
 import Context from "../../context/context";
@@ -20,7 +19,9 @@ function TrackPlayInfo() {
                     {
                         loading
                         ? <ImgSkeleton />
-                        : <NoteIcon cls={stylesSvg['track-play__svg']}/>
+                        : <S.TrackPlayImageSvg>
+                            <NoteIcon />
+                          </S.TrackPlayImageSvg>  
                     }
                 </S.TrackPlayImage>
                 <S.TrackPlayAuthor>
@@ -40,10 +41,14 @@ function TrackPlayInfo() {
             </S.TrackPlayContain>
             <S.TrackPlayLikeDis>
                 <S.TrackPlayLike>
-                    <LikeButton cls={stylesSvg['track-play__like-svg']}/>
+                    <S.TrackPlayLikeSvg>
+                        <LikeButton />
+                    </S.TrackPlayLikeSvg>
                 </S.TrackPlayLike>
                 <S.TrackPlayDislike>
-                    <DislikeButton cls={stylesSvg['track-play__dislike-svg']}/>
+                    <S.TrackPlayDislikeSvg>
+                        <DislikeButton />
+                    </S.TrackPlayDislikeSvg>
                 </S.TrackPlayDislike>             
             </S.TrackPlayLikeDis>
         </S.PlayerTrackPlay>
