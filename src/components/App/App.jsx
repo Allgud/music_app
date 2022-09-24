@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Context from '../context/context'
-import Bar from '../Bar'
-import Main from "../Main";
-import Footer from "../Footer";
+import AuthPage from '../../pages/AuthPage'
 import GStyles from "./global";
 import * as S from "./styles";
+import MainPage from "../../pages/MainPage";
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -22,9 +21,8 @@ function App() {
       <GStyles />
       <S.Wrapper>
         <S.Container>
-          <Main />
-          <Bar />
-          <Footer />
+          <AuthPage />
+          <MainPage />
         </S.Container>
       </S.Wrapper>
     </Context.Provider> 
