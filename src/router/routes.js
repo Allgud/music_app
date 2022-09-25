@@ -3,14 +3,22 @@ import {Routes, Route} from 'react-router-dom'
 import MainPage from '../pages/main'
 import AuthPage from '../pages/auth'
 import NotFound from '../pages/not-found'
+import RequireAuth from '../hoc/RequireAuth'
+import { AuthProvider } from '../hoc/AuthProvider'
 
 function AppRoutes() {
     return (
-        <Routes>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/auth' element={<AuthPage />} />
-            <Route path='*' element={<NotFound />} /> 
-        </Routes>
+        <AuthProvider>
+            <Routes>
+                <Route index element={<AuthPage />} />
+                <Route path='/tracks' element={
+                    <RequireAuth>
+                        <MainPage />
+                    </RequireAuth>
+                } />
+                <Route path='*' element={<NotFound />} /> 
+            </Routes>
+        </AuthProvider>
     )
 }
 
