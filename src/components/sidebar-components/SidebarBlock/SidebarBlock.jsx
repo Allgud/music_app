@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Context from '../../context/context'
+import { LoadingContext } from '../../context/context'
 import SidebarButton from "../SidebarButton";
 import SidebarButtonSkeleton from "../SidebarButtonSkeleton";
 
@@ -12,7 +12,7 @@ import * as S from './styles'
 const list = [ img1, img2, img3 ]
 
 function SidebarBlock() {
-    const loading = useContext(Context)
+    const loading = useContext(LoadingContext)
 
     const sidebarSkeletons = Array(list.length).fill('', 0, 3).map((_,i) => (<SidebarButtonSkeleton key={i}/>))
     const listButtons = list.map((elem, i) => (<SidebarButton key={i + 1} img={elem} />))

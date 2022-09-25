@@ -5,12 +5,12 @@ import {ImgSkeleton, TrackPlayLinkSkeleton} from '../TrackPlayInfoSkeleton/Track
 
 import * as S from './styles'
 import DislikeButton from "../../common-components/DislikeButton";
-import Context from "../../context/context";
+import { LoadingContext } from "../../context/context";
 import { useContext } from "react";
 
 
 function TrackPlayInfo() {
-    const loading = useContext(Context) 
+    const loading = useContext(LoadingContext) 
 
     return (
         <S.PlayerTrackPlay>

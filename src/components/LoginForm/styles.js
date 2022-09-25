@@ -11,6 +11,9 @@ export const FormBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    top: -70px;
+    left: 40%;
 `
 
 export const Form = styled.form`
