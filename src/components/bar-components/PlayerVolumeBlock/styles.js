@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Btn } from '../../App/styles'
+import { Btn } from '../../Layout/styles'
 
 export const BarVolumeBlock = styled.div`
     width: auto;

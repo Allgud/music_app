@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import Context from '../../context/context'
+import { LoadingContext } from '../../context/context'
 import Track from "../Track";
 import TrackSceleton from "../TrackSkeleton";
 import * as S from "./styles";
@@ -18,7 +18,7 @@ const tracks = [
 ]
 
 function PlayList() {
-    const loading = useContext(Context)
+    const loading = useContext(LoadingContext)
 
     const skeletons = Array(tracks.length).fill("", 0, 10).map((_, i) => <TrackSceleton key={i}/>)
     const trackList = tracks.map((elem, i) => (<Track key={i} track={elem} />))

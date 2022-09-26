@@ -6,7 +6,7 @@ function NavMenuItem({ link, title }) {
     
     return (
         <S.NavMenuItem>
-            <S.NavMenuItemLink href={link} >{title}</S.NavMenuItemLink>
+            <S.NavMenuItemLink to={link} >{title}</S.NavMenuItemLink>
         </S.NavMenuItem>
     )
 }

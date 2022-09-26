@@ -13,7 +13,7 @@ function Track({ track }) {
                     <S.TrackTitleImage>
                         <S.TrackTitleImageSvg>
                             <NoteIcon />
-                        </S.TrackTitleImageSvg>
+                        </S.TrackTitleImageSvg> 
                     </S.TrackTitleImage>
                     <S.TrackTitleText>
                         <S.TrackTitleLink>
