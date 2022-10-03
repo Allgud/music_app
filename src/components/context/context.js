@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const Context = createContext()
+export const LoadingContext = createContext()
 
-export default Context
+export const HandlerContext = createContext()
