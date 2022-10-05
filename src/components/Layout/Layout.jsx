@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import { Outlet } from 'react-router-dom'
 
 import CenterBlock from '../center-block-components/CenterBlock'
@@ -23,18 +22,5 @@ const Layout = () => (
         </S.Container>
     </S.Wrapper>
 )
-=======
-import * as S from './styles'
-
-function Layout({children}) {
-    return (
-        <S.Wrapper>
-            <S.Container>
-                {children}
-            </S.Container>
-        </S.Wrapper>
-    )
-}
->>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 
 export default Layout

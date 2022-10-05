@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useRef } from "react";
 import BarPlayer from '../BarPlayer';
 import PlayerVolumeBlock from "../PlayerVolumeBlock";
@@ -41,19 +40,6 @@ function BarPlayerBlock() {
                 </S.BarPlayerBlock>
             </S.BarContent>
         </StatusProvider>
-=======
-import React from "react";
-import BarPlayer from '../BarPlayer';
-import PlayerVolumeBlock from "../PlayerVolumeBlock";
-import * as S from './styles'
-
-function BarPlayerBlock() {
-    return (
-        <S.BarPlayerBlock>
-           <BarPlayer />
-           <PlayerVolumeBlock />
-        </S.BarPlayerBlock>
->>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
     )
 }
 

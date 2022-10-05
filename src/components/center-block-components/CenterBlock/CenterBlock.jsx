@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { useLocation } from "react-router-dom";
 
@@ -13,29 +12,11 @@ const CenterBlock = ({children}) => {
 
     return (<S.CenterBlock>
         <CenterBlockSearch />
-        <PageTitle title={PAGES_TITLES[location.pathname]}/>
-        <S.CenterBlockContent>
-            {children}
-        </S.CenterBlockContent>
-    </S.CenterBlock>)
-=======
-import React from 'react'
-import CenterBlockSearch from '../CenterBlockSearch'
-import CenterBlockFilter from '../CenterBlockFilter'
-import CenterBlockContent from '../CenterBlockContent'
-
-import * as S from './styles'
-
-function CenterBlock() {
-    return (
-        <S.CenterBlock>
-            <CenterBlockSearch />
-            <S.CenterBlockTitle>Треки</S.CenterBlockTitle>
-            <CenterBlockFilter />
-            <CenterBlockContent />
+            <PageTitle title={PAGES_TITLES[location.pathname]}/>
+            <S.CenterBlockContent>
+                {children}
+            </S.CenterBlockContent>
         </S.CenterBlock>
     )
->>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 }
-
 export default CenterBlock
