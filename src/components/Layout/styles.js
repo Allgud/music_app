@@ -13,5 +13,12 @@ export const Container = styled.div`
     margin: 0 auto;
     position: relative;
     background-color: #181818;
+<<<<<<< HEAD
     display: flex;
+=======
+`
+
+export const Btn = styled.div`
+    cursor: pointer;
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 `

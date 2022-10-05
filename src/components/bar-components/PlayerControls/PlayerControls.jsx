@@ -1,19 +1,12 @@
-import React, {useContext} from "react";
-import {PrevBtn, PlayBtn, NextBtn, RepeatBtn, ShuffleBtn, PauseBtn} from '../PlayerButtons/PlayerButtons'
+import React from "react";
+import {PrevBtn, PlayBtn, NextBtn, RepeatBtn, ShuffleBtn} from '../PlayerButtons/PlayerButtons'
 import * as S from './styles'
-import { useStatus } from '../../../hook/useStatus'
-import { HandlerContext } from '../../context/context'
 
 function PlayerControls() {
-    const { isPlaying } = useStatus()
-    const handlePlayPauseClick = useContext(HandlerContext)
-
     return (
-        <S.PlayerControls onClick={handlePlayPauseClick(isPlaying)}>
+        <S.PlayerControls>
             <PrevBtn />
-            {
-                !isPlaying ? <PlayBtn /> : <PauseBtn />
-            }
+            <PlayBtn />
             <NextBtn />
             <RepeatBtn />
             <ShuffleBtn />

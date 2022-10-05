@@ -10,4 +10,5 @@ export const FilledBarPlayerProgress = styled.div`
     height: 5px;
     background: #B672FF;
     transform: translateY(-5px);
+    transition: width 0.5s;
 `

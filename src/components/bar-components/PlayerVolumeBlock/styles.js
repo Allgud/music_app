@@ -1,8 +1,12 @@
 import styled from 'styled-components'
+<<<<<<< HEAD
 
 const Btn = styled.div`
     cursor: pointer;
 `
+=======
+import { Btn } from '../../Layout/styles'
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 
 export const BarVolumeBlock = styled.div`
     width: auto;

@@ -4,7 +4,10 @@ const Btn = styled.div`
     padding: 5px;
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     cursor: pointer;
+=======
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 `
 
 export const PrevBtn = styled(Btn)`

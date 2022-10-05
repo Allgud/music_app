@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+<<<<<<< HEAD
 export const BarContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -10,6 +11,9 @@ export const BarContent = styled.div`
 
 export const BarPlayerBlock = styled.div`
     width: 100vw;
+=======
+export const BarPlayerBlock = styled.div`
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
     height: 73px;
     display: flex;
     flex-direction: row;

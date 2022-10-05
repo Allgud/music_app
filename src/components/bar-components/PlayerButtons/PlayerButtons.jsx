@@ -1,10 +1,16 @@
 import React from "react";
 import { HandySvg } from 'handy-svg'
+<<<<<<< HEAD
 import { useStatus } from '../../../hook/useStatus'
 
 import nextSvg from '../../../img/icon/next.svg'
 import playSvg from '../../../img/icon/play.svg'
 import pauseSvg from '../../../img/icon/pause.svg'
+=======
+
+import nextSvg from '../../../img/icon/next.svg'
+import playSvg from '../../../img/icon/play.svg'
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
 import prevSvg from '../../../img/icon/prev.svg'
 import repeatSvg from '../../../img/icon/repeat.svg'
 import shuffleSvg from '../../../img/icon/shuffle.svg'
@@ -13,9 +19,13 @@ import volumeSvg from '../../../img/icon/volume.svg'
 import * as S from './styles'
 
 export const NextBtn = () => (
+<<<<<<< HEAD
     <S.NextBtn
         data-btn="next"
     >
+=======
+    <S.NextBtn>
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
         <S.NextBtnSvg>
             <HandySvg 
                 src={nextSvg}
@@ -26,9 +36,13 @@ export const NextBtn = () => (
 )
 
 export const PrevBtn = () => (
+<<<<<<< HEAD
     <S.PrevBtn
         data-btn="prev"
     >
+=======
+    <S.PrevBtn>
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
         <S.PrevBtnSvg>
             <HandySvg 
                 src={prevSvg}
@@ -38,6 +52,7 @@ export const PrevBtn = () => (
     </S.PrevBtn>
 )
 
+<<<<<<< HEAD
 export const PlayBtn = () => {
     const { onPlayClick } = useStatus()
 
@@ -61,6 +76,21 @@ export const RepeatBtn = () => (
     <S.RepeatBtn
         data-btn="repeat"
     >
+=======
+export const PlayBtn = () => (
+    <S.PlayBtn>
+        <S.PlayBtnSvg>
+            <HandySvg 
+                src={playSvg}
+                alt="play"
+            />
+        </S.PlayBtnSvg>
+    </S.PlayBtn>
+)
+
+export const RepeatBtn = () => (
+    <S.RepeatBtn>
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
         <S.RepeatBtnSvg>
             <HandySvg 
                 src={repeatSvg}
@@ -71,9 +101,13 @@ export const RepeatBtn = () => (
 )
 
 export const ShuffleBtn = () => (
+<<<<<<< HEAD
     <S.ShuffleBtn
         data-btn="shuffle"
     >
+=======
+    <S.ShuffleBtn>
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5
         <S.ShuffleBtnSvg>
             <HandySvg 
                 src={shuffleSvg}
@@ -92,6 +126,7 @@ export const VolumeImage = () => (
             />
         </S.VolumeImageSvg>
     </S.VolumeImage>
+<<<<<<< HEAD
 )
 
 export const PauseBtn = () => {
@@ -111,3 +146,6 @@ export const PauseBtn = () => {
         </S.PlayBtn> 
     )
 }
+=======
+)
+>>>>>>> 81fd5e99b3554f2798a27ce24fbb1f9b141885d5

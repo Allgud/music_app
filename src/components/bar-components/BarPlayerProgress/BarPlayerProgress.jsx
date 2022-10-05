@@ -20,6 +20,7 @@ const BarPlayerProgress = ({audio}) => {
             const value = Math.round(audio?.current?.currentTime) / duration * 100
             setCurrentTime(value)
         }, 1000)
+        return () => clearInterval(interval)
     }, [isPlaying])
 
     return (
