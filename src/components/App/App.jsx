@@ -6,7 +6,7 @@ const App = () => (
     <>
       <GStyles />
       <AppRoutes />
-    </>
+    </>   
 )
    
 export default App
