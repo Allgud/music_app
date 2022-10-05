@@ -13,8 +13,6 @@ export const Container = styled.div`
     margin: 0 auto;
     position: relative;
     background-color: #181818;
-`
+    display: flex;
 
-export const Btn = styled.div`
-    cursor: pointer;
 `

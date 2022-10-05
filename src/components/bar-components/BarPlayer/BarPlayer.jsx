@@ -6,8 +6,8 @@ import * as S from './styles'
 function BarPlayer() {
     return (
         <S.BarPlayer>
-            <PlayerControls />
-            <TrackPlayInfo />
+          <PlayerControls />
+          <TrackPlayInfo />
         </S.BarPlayer>
     )
 }

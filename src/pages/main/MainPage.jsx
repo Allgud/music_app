@@ -1,27 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Bar from '../../components/Bar'
-import Main from "../../components/Main";
-import Footer from "../../components/Footer";
-import {LoadingContext} from "../../components/context/context";
+import React from 'react'
 
-function MainPage() {
-    const [loading, setLoading] = useState()
+import PlayList from '../../components/playlist-components/Playlist'
+import CenterBlockFilter from '../../components/filter-components/CenterBlockFilter'
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-          setLoading(false)
-          clearTimeout(timeout)
-        }, 5000)
-        setLoading(true)
-      }, [])
-    
-    return (
-        <LoadingContext.Provider value={loading}>
-            <Main />
-            <Bar />
-            <Footer />
-        </LoadingContext.Provider>
-    )
-}
+const MainPage = () => (
+    <>
+        <CenterBlockFilter />
+        <PlayList />
+    </>
+)
 
 export default MainPage

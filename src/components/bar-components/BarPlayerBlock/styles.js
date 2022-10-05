@@ -1,8 +1,15 @@
 import styled from 'styled-components'
 
-export const BarPlayerBlock = styled.div`
-    height: 73px;
+export const BarContent = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+`
+
+export const BarPlayerBlock = styled.div`
+    width: 100vw;
+    display: flex;
     justify-content: space-between;
 `

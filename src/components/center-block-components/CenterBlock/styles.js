@@ -7,6 +7,12 @@ export const CenterBlock = styled.div`
     padding: 20px 40px 20px 111px;
 `
 
+
+export const CenterBlockContent = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 export const CenterBlockTitle = styled.h2`
     font-style: normal;
     font-weight: 400;

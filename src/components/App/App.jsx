@@ -1,18 +1,12 @@
 import React from "react";
-import GStyles from "./global";
-import Layout from "../Layout";
 import AppRoutes from "../../router/routes";
+import GStyles from "./global";
 
-function App() {
-
-  return (
+const App = () => (
     <>
       <GStyles />
-      <Layout>
-        <AppRoutes />
-      </Layout>
+      <AppRoutes />
     </>   
-  )
-}
-
-export default App;
+)
+   
+export default App

@@ -1,8 +1,10 @@
 import React from "react";
 import { HandySvg } from 'handy-svg'
+import { useStatus } from '../../../hook/useStatus'
 
 import nextSvg from '../../../img/icon/next.svg'
 import playSvg from '../../../img/icon/play.svg'
+import pauseSvg from '../../../img/icon/pause.svg'
 import prevSvg from '../../../img/icon/prev.svg'
 import repeatSvg from '../../../img/icon/repeat.svg'
 import shuffleSvg from '../../../img/icon/shuffle.svg'
@@ -32,16 +34,22 @@ export const PrevBtn = () => (
     </S.PrevBtn>
 )
 
-export const PlayBtn = () => (
-    <S.PlayBtn>
-        <S.PlayBtnSvg>
-            <HandySvg 
-                src={playSvg}
-                alt="play"
-            />
-        </S.PlayBtnSvg>
-    </S.PlayBtn>
-)
+export const PlayBtn = () => {
+    const { onPlayClick } = useStatus()
+
+    return (
+        <S.PlayBtn 
+            onClick={onPlayClick} 
+        >
+            <S.PlayBtnSvg>
+                <HandySvg 
+                    src={playSvg}
+                    alt="play"
+                />
+            </S.PlayBtnSvg>
+        </S.PlayBtn>
+    )
+}
 
 export const RepeatBtn = () => (
     <S.RepeatBtn>
@@ -75,3 +83,21 @@ export const VolumeImage = () => (
         </S.VolumeImageSvg>
     </S.VolumeImage>
 )
+
+export const PauseBtn = () => {
+    const { onPauseClick } = useStatus()
+
+    return (
+        <S.PlayBtn 
+            onClick={onPauseClick}
+        >
+            <S.PlayBtnSvg>
+                <HandySvg 
+                    src={pauseSvg}
+                    alt="pause"
+                />
+            </S.PlayBtnSvg>
+        </S.PlayBtn> 
+    )
+}
+

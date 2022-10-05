@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import { Btn } from '../../Layout/styles'
 
+const Btn = styled.div`
+    cursor: pointer;
+`
 export const BarVolumeBlock = styled.div`
     width: auto;
     display: flex;
