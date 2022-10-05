@@ -10,4 +10,6 @@ export const BarContent = styled.div`
 
 export const BarPlayerBlock = styled.div`
     width: 100vw;
+    display: flex;
+    justify-content: space-between;
 `

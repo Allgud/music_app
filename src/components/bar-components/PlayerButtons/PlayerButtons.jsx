@@ -90,7 +90,6 @@ export const PauseBtn = () => {
     return (
         <S.PlayBtn 
             onClick={onPauseClick}
-            data-btn="pause"
         >
             <S.PlayBtnSvg>
                 <HandySvg 
