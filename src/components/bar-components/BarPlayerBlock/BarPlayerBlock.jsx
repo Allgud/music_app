@@ -6,7 +6,7 @@ import * as S from './styles'
 import { StatusProvider } from '../../../hoc/StatusProvider'
 import { HandlerContext } from '../../context/context'
 import BarPlayerProgress from '../BarPlayerProgress'
-import src from '../AudioBox/audio/track.mp3'
+import src from '../AudioBox/audio/Papa Roach - Dead Cell.mp3'
 
 function BarPlayerBlock() {
     const trackRef = useRef()
