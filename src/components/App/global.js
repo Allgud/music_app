@@ -4,7 +4,7 @@ const GStyles = createGlobalStyle`
     @font-face {
         font-family: 'StratosSkyeng';
         src: local('StratosSkyeng'), local('StratosSkyeng'),
-            url('../fonts/Stratos-Medium.woff2') format('woff2'),
+            url('../fonts/Stratos-Mefium.woff2') format('woff2'),
             url('../fonts/Stratos-Medium.woff') format('woff');
         font-weight: 400;
         font-style: normal;
@@ -42,7 +42,7 @@ const GStyles = createGlobalStyle`
         width: 100%;
         height: 100%;
         font-family: 'StratosSkyeng', sans-serif;
-        color: #FFFFFF;
+        color: ${props => props.theme.color}
     }
 `
 

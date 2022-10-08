@@ -13,5 +13,5 @@ export const BurgerLine = styled.span`
     display: inline-block;
     width: 100%;
     height: 1px;
-    background-color: #D3D3D3;
+    background-color: ${props => props.theme.burgerBack};
 `

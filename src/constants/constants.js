@@ -24,3 +24,52 @@ export const PAGES_TITLES = {
     '/collections': "Мои подборки" 
 }
 
+const COLORS = {
+    'smoke-white': '#F5F5F5',
+    'smoke-white-sec': '#F6F5F3',
+    'white': "#FFFFFF",
+    'dark-purple-violet': '#580EA2',
+    'light-telegrey': '#D0CECE',
+    'grey-umbra': '#2E2E2E',
+    'heliotrop': '#B672FF',
+    'moderate-red': '#A53939',
+    'light-grey': '#D9D9D9',
+    'shade-grey': '#696969',
+    'white-alum': '#ACACAC',
+    'dark-grey': '#313131',
+    'wet-asphalt': '#4E4E4E',
+    'blue-lilo': '#9A48F1',
+    'light-purple': '#D9B6FF',
+    'moderate-orchid': '#AD61FF',
+    'black': '#000000',
+    'kerim`s-beard': '#D3D3D3',
+    'blue-black': '#181818',
+    'grafit-black': '#1C1C1C',
+    'black-oliva': '#383838'  
+}
+
+export const themes = {
+    light: {
+        title: 'light',
+        wrapperBack: COLORS['white'],
+        containerBack: COLORS['white'],
+        navBack: COLORS['smoke-white-sec'],
+        color: COLORS['black'],
+        progressBack: COLORS['light-grey'],
+        burgerBack: COLORS['black'],
+        themeBtnBack: COLORS['smoke-white-sec'],
+        borderColor: COLORS['light-grey']
+    }, 
+    dark: {
+        title: 'dark',
+        wrapperBack: COLORS['black-oliva'],
+        containerBack: COLORS['blue-black'],
+        color: COLORS['white'],
+        navBack: COLORS['blue-black'],
+        progressBack: COLORS['grey-umbra'],
+        burgerBack: COLORS['kerim`s-beard'],
+        themeBtnBack: COLORS['grafit-black'],
+        borderColor: COLORS['wet-asphalt']
+    }
+}
+

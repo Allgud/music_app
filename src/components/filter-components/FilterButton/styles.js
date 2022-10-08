@@ -7,7 +7,7 @@ export const FilterButton = styled.div`
     line-height: 24px;
     border: 1px solid;
     border-color: ${(props) => props.$active ? '#9A48F1' : '#FFFFFF'};
-    color: ${(props) => props.$active ? '#B672FF' : '#FFFFFF'};
+    color: ${(props) => props.$active ? '#B672FF' : '#${props => props.theme.color}'};
     border-radius: 60px;
     padding: 6px 20px;
     cursor: pointer;

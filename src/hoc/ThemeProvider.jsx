@@ -1,25 +1,32 @@
-import React, {createContext} from "react";
-
-export const theme = {
-    dark: {
-        background: '#F5F5F5',
-        color: '#FFFFFF'
-    },
-    light: {
-        background: '#FFFFFF',
-        color: '#000000'
-    } 
-}
+import React, { useState, createContext } from "react";
+import { themes } from '../constants/constants'
 
 export const ThemeContext = createContext({
-    theme: theme.dark,
+    theme: themes.dark,
     toggleTheme: () => {}
 })
 
 export const ThemeProvider = ({children}) => {
+    const [currentTheme, setCurrentTheme] = useState(themes.dark)
+
+    const toggleTheme = () => {
+        if(currentTheme === themes.dark) {
+            setCurrentTheme(themes.light)
+            return
+        }
+
+        if(currentTheme === themes.light) {
+            setCurrentTheme(themes.dark)
+            return
+        }
+    }
+
+    const value = {theme: currentTheme, toggleTheme}
+
     return (
-        <ThemeContext.Provider >
+        <ThemeContext.Provider value={value}>
             {children}
         </ThemeContext.Provider>
     )
 }
+

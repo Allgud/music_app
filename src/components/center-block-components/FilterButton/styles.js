@@ -6,8 +6,8 @@ export const FilterButton = styled.div`
     font-size: 16px;
     line-height: 24px;
     border: 1px solid;
-    border-color: ${(props) => props.$active ? '#9A48F1' : '#FFFFFF'};
-    color: ${(props) => props.$active ? '#B672FF' : '#FFFFFF'};
+    border-color: ${(props) => props.$active ? '#9A48F1' : '#${props => props.theme.color}'};
+    color: ${(props) => props.$active ? '#B672FF' : '#${props => props.theme.color}'};
     border-radius: 60px;
     padding: 6px 20px;
     cursor: pointer;

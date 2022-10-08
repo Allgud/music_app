@@ -1,10 +1,12 @@
 import React from "react";
-// import LikeButton from "../../common-components/LikeButton";
 import NoteIcon from '../../common-components/NoteIcon'
-import * as S from './styles'
 import LikeButton from "../../common-components/LikeButton";
+import { useTheme } from "../../../hook/useTheme";
+import * as S from './styles'
+
 
 function Track({ track }) {
+    const { theme } = useTheme()
 
     return (
         <S.PlayListItem>
@@ -16,7 +18,7 @@ function Track({ track }) {
                         </S.TrackTitleImageSvg> 
                     </S.TrackTitleImage>
                     <S.TrackTitleText>
-                        <S.TrackTitleLink>
+                        <S.TrackTitleLink theme={theme}>
                             {track.title}
                             <S.TrackTitleSpan>
                                 {track.advInfo}

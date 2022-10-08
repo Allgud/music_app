@@ -13,7 +13,7 @@ export const SidebarPersonalName = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
     margin-right: 16px;
 `
 

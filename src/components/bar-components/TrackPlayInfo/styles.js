@@ -75,7 +75,7 @@ export const TrackPlayLike = styled.div`
 
     &:active svg {
         fill: transparent;
-        stroke: #FFFFFF;
+        stroke: #${props => props.theme.color};
         cursor: pointer; 
     }
 `

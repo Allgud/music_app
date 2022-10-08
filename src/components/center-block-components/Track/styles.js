@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import { NavLink } from "react-router-dom";
 
 export const PlayListItem = styled.div`
     width: 100%;
@@ -23,7 +24,7 @@ export const TrackTitleImage = styled.div`
     width: 51px;
     height: 51px;
     padding: 16px;
-    background: #313131;
+    background: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +47,6 @@ export const TrackTitleLink = styled.a`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
 `
 
 export const TrackTitleSpan = styled.span`
@@ -68,7 +68,7 @@ export const TrackAuthorLink = styled.a`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: #${props => props.theme.color};
     text-align: left;
 `
 
