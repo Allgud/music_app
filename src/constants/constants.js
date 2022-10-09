@@ -62,7 +62,8 @@ export const themes = {
         borderColor: COLORS['light-grey'],
         filterListBack: COLORS['smoke-white-sec'],
         trackIconBack: COLORS['agat-grey'],
-        buttonFill: COLORS['agat-grey']
+        buttonFill: COLORS['agat-grey'],
+        volumeFill: COLORS['moderate-orchid']
     }, 
     dark: {
         title: 'dark',
@@ -76,7 +77,8 @@ export const themes = {
         borderColor: COLORS['wet-asphalt'],
         filterListBack: COLORS['dark-grey'],
         trackIconBack: COLORS['dark-grey'],
-        buttonFill: COLORS['light-grey']
+        buttonFill: COLORS['light-grey'],
+        volumeFill: COLORS['white']
     }
 }
 
