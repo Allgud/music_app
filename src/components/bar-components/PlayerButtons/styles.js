@@ -14,6 +14,7 @@ export const PrevBtn = styled(Btn)`
 export const PrevBtnSvg = styled.svg`
     width: 15px;
     height: 14px;
+    fill: ${props => props.theme.buttonFill}
 `
 
 export const NextBtn = styled(Btn)`
@@ -24,8 +25,7 @@ export const NextBtn = styled(Btn)`
 export const NextBtnSvg = styled.svg`
     width: 15px;
     height: 14px;
-    fill: inherit;
-    stroke: #D9D9D9;
+    fill: ${props => props.theme.buttonFill}
 `
 
 export const PlayBtn = styled(Btn)`
@@ -35,7 +35,7 @@ export const PlayBtn = styled(Btn)`
 export const PlayBtnSvg = styled.svg`
     width: 22px;
     height: 20px;
-    fill: #D9D9D9;
+    fill: ${props => props.theme.buttonFill};
 `
 
 export const RepeatBtn = styled(Btn)`
@@ -46,7 +46,7 @@ export const RepeatBtnSvg = styled.svg`
     width: 18px;
     height: 12px;
     fill: transparent;
-    stroke: #696969;
+    stroke: ${props => props.theme.buttonFill};
 `
 
 export const ShuffleBtn = styled(Btn)`
@@ -58,7 +58,7 @@ export const ShuffleBtnSvg = styled.svg`
     width: 19px;
     height: 12px;
     fill: transparent;
-    stroke: #696969;
+    stroke: ${props => props.theme.buttonFill};
 `
 
 export const VolumeImage = styled.div`
@@ -71,4 +71,5 @@ export const VolumeImageSvg = styled.svg`
     width: 13px;
     height: 18px;
     fill: transparent;
+    stroke: ${props => props.theme.buttonFill};
 `

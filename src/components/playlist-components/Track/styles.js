@@ -23,7 +23,7 @@ export const TrackTitleImage = styled.div`
     width: 51px;
     height: 51px;
     padding: 16px;
-    background: #313131;
+    background: ${props => props.theme.trackIconBack};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +46,7 @@ export const TrackTitleLink = styled.a`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #${props => props.theme.color};
+    color: ${props => props.theme.color};
 `
 
 export const TrackTitleSpan = styled.span`
@@ -68,7 +68,7 @@ export const TrackAuthorLink = styled.a`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #${props => props.theme.color};
+    color: ${props => props.theme.color};
     text-align: left;
 `
 

@@ -13,7 +13,7 @@ const Button = styled.button`
 
 export const EnterButton = styled(Button)`
     background: #580EA2;
-    color: #${props => props.theme.color};
+    color: ${props => props.theme.color};
     margin-bottom: 20px;
 `
 

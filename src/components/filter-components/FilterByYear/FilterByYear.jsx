@@ -2,12 +2,12 @@ import React from "react";
 import FilterByYearItem from "../FilterByYearItem";
 import * as S from "./styles";
 
-function FilterByYear({buttons}) {
+function FilterByYear({buttons, theme}) {
 
     return (
-        <S.FilterByYear>
+        <S.FilterByYear theme={theme}>
             <S.FilterByYearItems>
-                {buttons.map((btn, i) => <FilterByYearItem key={i} value={btn}/>)}
+                {buttons.map((btn, i) => <FilterByYearItem theme={theme} key={i} value={btn}/>)}
             </S.FilterByYearItems>
         </S.FilterByYear>  
     )

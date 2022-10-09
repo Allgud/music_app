@@ -15,7 +15,7 @@ function TrackPlayInfo() {
     return (
         <S.PlayerTrackPlay>
             <S.TrackPlayContain>
-                <S.TrackPlayImage>
+                <S.TrackPlayImage theme={theme}>
                     {
                         loading
                         ? <ImgSkeleton />
@@ -28,14 +28,14 @@ function TrackPlayInfo() {
                     {
                         loading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAuthorLink href="#" >Ты та...</S.TrackPlayAuthorLink>
+                        : <S.TrackPlayAuthorLink theme={theme} href="#" >Ты та...</S.TrackPlayAuthorLink>
                     }
                 </S.TrackPlayAuthor>
-                <S.TrackPlayAlbum theme={theme}>
+                <S.TrackPlayAlbum>
                     {
                         loading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAlbumLink href="#" >Баста</S.TrackPlayAlbumLink>
+                        : <S.TrackPlayAlbumLink theme={theme} href="#" >Баста</S.TrackPlayAlbumLink>
                     } 
                 </S.TrackPlayAlbum>
             </S.TrackPlayContain>

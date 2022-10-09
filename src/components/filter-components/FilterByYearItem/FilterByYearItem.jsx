@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./styles";
 
-function FilterByYearItem({value}) {
+function FilterByYearItem({value, theme}) {
     return (
-        <S.FilterByYearItem>
+        <S.FilterByYearItem theme={theme}>
             <input type="radio" name="year" value={value} id={value}/>
             <label htmlFor={value}>{value}</label>
         </S.FilterByYearItem>

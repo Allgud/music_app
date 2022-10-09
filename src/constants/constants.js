@@ -45,7 +45,8 @@ const COLORS = {
     'kerim`s-beard': '#D3D3D3',
     'blue-black': '#181818',
     'grafit-black': '#1C1C1C',
-    'black-oliva': '#383838'  
+    'black-oliva': '#383838',
+    'agat-grey': '#B1B1B1'  
 }
 
 export const themes = {
@@ -58,7 +59,10 @@ export const themes = {
         progressBack: COLORS['light-grey'],
         burgerBack: COLORS['black'],
         themeBtnBack: COLORS['smoke-white-sec'],
-        borderColor: COLORS['light-grey']
+        borderColor: COLORS['light-grey'],
+        filterListBack: COLORS['smoke-white-sec'],
+        trackIconBack: COLORS['agat-grey'],
+        buttonFill: COLORS['agat-grey']
     }, 
     dark: {
         title: 'dark',
@@ -69,7 +73,10 @@ export const themes = {
         progressBack: COLORS['grey-umbra'],
         burgerBack: COLORS['kerim`s-beard'],
         themeBtnBack: COLORS['grafit-black'],
-        borderColor: COLORS['wet-asphalt']
+        borderColor: COLORS['wet-asphalt'],
+        filterListBack: COLORS['dark-grey'],
+        trackIconBack: COLORS['dark-grey'],
+        buttonFill: COLORS['light-grey']
     }
 }
 

@@ -12,7 +12,7 @@ function Nav() {
     const handleMenuRender = () => {
         setActive(!active)
     }
-    console.log(theme);
+    
     return (
         <S.Nav theme={theme}>
             <Logo />

@@ -20,6 +20,6 @@ export const SidebarPersonalName = styled.p`
 export const SidebarAvatar = styled.div`
     width: 43px;
     height: 43px;
-    background-color: #313131;
+    background-color: ${props => props.theme.trackIconBack};
     border-radius: 50%;
 `

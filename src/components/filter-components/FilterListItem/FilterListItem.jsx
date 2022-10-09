@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from './styles';
 
-function FilterListItem({item}) {
+function FilterListItem({item, theme}) {
     return (
-        <S.FilterListItem>
+        <S.FilterListItem theme={theme}>
             {item}
         </S.FilterListItem>
     )

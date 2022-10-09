@@ -13,7 +13,7 @@ function SidebarPersonal() {
                 theme={theme}
             >
                 {auth ? 'Sergey.Ivanov' : 'Log In'}</S.SidebarPersonalName>
-            <S.SidebarAvatar />
+            <S.SidebarAvatar theme={theme}/>
         </S.SidebarPersonal>
     )
 }

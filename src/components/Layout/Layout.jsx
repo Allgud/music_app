@@ -4,7 +4,7 @@ import { useTheme } from '../../hook/useTheme'
 import CenterBlock from '../center-block-components/CenterBlock'
 import Nav from '../nav-components/Nav'
 import Sidebar from '../sidebar-components/Sidebar'
-import BarPlayerBlock from '../bar-components/BarPlayerBlock'
+import Bar from '../bar-components/Bar'
 import Footer from '../Footer'
 
 import * as S from './styles'
@@ -21,7 +21,7 @@ const Layout = () => {
                     <Outlet />
                 </CenterBlock>
                 <Sidebar />
-                <BarPlayerBlock />
+                <Bar />
                 <Footer />
             </S.Container>
         </S.Wrapper>
