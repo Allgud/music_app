@@ -5,7 +5,6 @@ import CenterBlock from '../center-block-components/CenterBlock'
 import Nav from '../nav-components/Nav'
 import Sidebar from '../sidebar-components/Sidebar'
 import Bar from '../bar-components/Bar'
-import Footer from '../Footer'
 
 import * as S from './styles'
 
@@ -22,7 +21,6 @@ const Layout = () => {
                 </CenterBlock>
                 <Sidebar />
                 <Bar />
-                <Footer />
             </S.Container>
         </S.Wrapper>
     )

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { StatusProvider } from '../../../hoc/StatusProvider'
+import { StatusProvider } from '../../../providers/StatusProvider'
 import { useTheme } from '../../../hook/useTheme'
 import { HandlerContext } from "../../context/context";
 import BarPlayerProgress from "../BarPlayerProgress";

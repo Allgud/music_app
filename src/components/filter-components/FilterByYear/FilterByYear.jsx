@@ -1,13 +1,15 @@
 import React from "react";
+import { useTheme } from '../../../hook/useTheme'
 import FilterByYearItem from "../FilterByYearItem";
 import * as S from "./styles";
 
-function FilterByYear({buttons, theme}) {
+function FilterByYear({buttons}) {
+    const { theme } = useTheme()
 
     return (
         <S.FilterByYear theme={theme}>
             <S.FilterByYearItems>
-                {buttons.map((btn, i) => <FilterByYearItem theme={theme} key={i} value={btn}/>)}
+                {buttons.map(btn => <FilterByYearItem key={btn.id} value={btn.title} />)}
             </S.FilterByYearItems>
         </S.FilterByYear>  
     )

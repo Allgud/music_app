@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Layout from '../components/Layout'
-import { AuthProvider } from '../hoc/AuthProvider'
+import { AuthProvider } from '../providers/AuthProvider'
 import RequireAuth from '../hoc/RequireAuth'
 import AuthPage from '../pages/auth'
 import CollectionsPage from '../pages/collections'

@@ -5,7 +5,7 @@ import GStyles from "./global";
 
 const App = () => {
   const { theme } = useTheme()
-
+  
   return (
     <>
       <GStyles theme={theme}/>
