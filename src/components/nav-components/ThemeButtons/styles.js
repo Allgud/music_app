@@ -5,4 +5,8 @@ export const ThemeButton = styled.svg`
     height: 39px;
     background: ${props => props.theme.themeBtnBack};
     fill: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
 `
