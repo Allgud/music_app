@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStatus } from '../../../hook/useStatus'
+import { useTheme } from '../../../hook/useTheme'
 
 import * as S from './styles'
 
@@ -7,6 +8,7 @@ const BarPlayerProgress = ({audio}) => {
     const duration = Math.round(audio?.current?.duration)
     const [currentTime, setCurrentTime] = useState(0)
     const { isPlaying } = useStatus()
+    const { theme } = useTheme()
 
     useEffect(() => {
         if(currentTime === 100) {
@@ -25,7 +27,7 @@ const BarPlayerProgress = ({audio}) => {
 
     return (
         <>
-            <S.BarPlayerProgress />
+            <S.BarPlayerProgress theme={theme}/>
             <S.FilledBarPlayerProgress $width={`${currentTime}%`}/>
         </>
     )

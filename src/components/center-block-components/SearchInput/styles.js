@@ -2,18 +2,18 @@ import styled from "styled-components";
 
 export const SearchInput = styled.input`
     flex-grow: 100;
-    background-color: transparent;
+    background: transparent;
     border: none;
     padding: 13px 10px 14px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
 
     &::placeholder {
-        background-color: transparent;
-        color: #FFFFFF;
+        background: transparent;
+        color: ${props => props.theme.color};
         font-style: normal;
         font-weight: 400;
         font-size: 16px;

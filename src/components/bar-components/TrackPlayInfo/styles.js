@@ -16,7 +16,7 @@ export const TrackPlayContain = styled.div`
 export const TrackPlayImage = styled.div`
     width: 51px;
     height: 51px;
-    background-color: #313131;
+    background-color: ${props => props.theme.trackIconBack};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ export const TrackPlayAuthorLink = styled.a`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
     white-space: nowrap;
 `
 
@@ -55,7 +55,7 @@ export const TrackPlayAlbumLink = styled.a`
     font-weight: 400;
     font-size: 13px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
 `
 
 export const TrackPlayLikeDis = styled.div`
@@ -75,7 +75,7 @@ export const TrackPlayLike = styled.div`
 
     &:active svg {
         fill: transparent;
-        stroke: #FFFFFF;
+        stroke: #${props => props.theme.color};
         cursor: pointer; 
     }
 `

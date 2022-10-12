@@ -8,11 +8,11 @@ export const FilterByYear = styled.div`
     width: 403px;
     height: 92px;
     gap: 14px;
-    background-color: #313131;
     border-radius: 12px;
     position: absolute;
     top: 50px;
-    left: 240px
+    left: 240px;
+    background-color: ${props => props.theme.filterListBack};
 `
 
 export const FilterByYearItems = styled.div`

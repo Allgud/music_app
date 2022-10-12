@@ -1,5 +1,5 @@
 import { useContext } from "react"; 
-import { StatusContext } from "../hoc/StatusProvider";
+import { StatusContext } from "../providers/StatusProvider";
 
 export function useStatus() {
     return useContext(StatusContext)

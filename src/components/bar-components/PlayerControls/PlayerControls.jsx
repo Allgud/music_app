@@ -5,8 +5,8 @@ import { HandlerContext } from "../../context/context";
 import * as S from './styles'
 
 function PlayerControls() {
-    const {isPlaying} = useStatus()
-    const handlePlayPauseClick = useContext(HandlerContext)
+    const { isPlaying} = useStatus()
+    const { handlePlayPauseClick }= useContext(HandlerContext)
 
     return (
         <S.PlayerControls onClick={() => handlePlayPauseClick(!isPlaying)}>

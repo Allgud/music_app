@@ -12,7 +12,7 @@ export const ListItem = styled.li`
 export const ItemTitle = styled.span`
     margin: 0 auto;
     display: inline-block;
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
     font-weight: 400;
     font-size: 40px;
     line-height: 44px;

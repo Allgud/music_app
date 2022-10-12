@@ -10,7 +10,7 @@ function PlayList() {
     const loading = useContext(LoadingContext)
 
     const skeletons = Array(TRACKS.length).fill("", 0, 10).map((_, i) => <TrackSkeleton key={i}/>)
-    const trackList = TRACKS.map((elem, i) => (<Track key={i} track={elem} />))
+    const trackList = TRACKS.map(elem => (<Track key={elem.id} track={elem} />))
    
     return (
         <S.PlayList>

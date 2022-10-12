@@ -8,11 +8,10 @@ export const FilterList = styled.ul`
     gap: 40px;
     width: 248px;
     max-height: 305px;
-    background: #313131;
+    background: ${props => props.theme.filterListBack};
     border-radius: 12px;
     position: absolute;
     top: 50px;
     left: ${(props) => props.$activeSelector === 'author' ? '90px' : '390px'};
     overflow: auto;
-
 `

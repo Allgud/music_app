@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    background-color: #383838;
+    background-color: ${props => props.theme.wrapperBack};
 `
 
 export const Container = styled.div`
@@ -12,7 +12,6 @@ export const Container = styled.div`
     height: 100vh;
     margin: 0 auto;
     position: relative;
-    background-color: #181818;
+    background-color: ${props => props.theme.containerBack};
     display: flex;
-
 `

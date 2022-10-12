@@ -6,7 +6,7 @@ export const NavMenuItem = styled.li`
     margin-bottom: 16px;
 `
 export const NavMenuItemLink = styled(NavLink)`
-    color: #FFFFFF;
+    color: ${props => props.theme.color};
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;

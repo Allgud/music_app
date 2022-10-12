@@ -1,10 +1,13 @@
 import React from "react";
 import * as S from './styles';
+import { useTheme } from '../../../hook/useTheme'
 
-function FilterListItem({item}) {
+function FilterListItem({title}) {
+    const { theme } = useTheme()
+
     return (
-        <S.FilterListItem>
-            {item}
+        <S.FilterListItem theme={theme}>
+            {title}
         </S.FilterListItem>
     )
 }

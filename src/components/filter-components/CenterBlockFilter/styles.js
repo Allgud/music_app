@@ -14,4 +14,5 @@ export const CenterBlockFilterTitle = styled.div`
     font-size: 16px;
     line-height: 24px;
     margin-right: 15px;
+    color: ${props => props.theme.color}
 `

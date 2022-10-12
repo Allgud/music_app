@@ -7,4 +7,5 @@ export const PageTitle = styled.h2`
     line-height: 72px;
     letter-spacing: -0.8px;
     margin-bottom: 45px;
+    color: ${props => props.theme.color}
 `

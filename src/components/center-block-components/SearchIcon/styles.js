@@ -4,6 +4,6 @@ export const SearchIconSvg = styled.svg`
     width: 17px;
     height: 17px;
     margin-right: 5px;
-    stroke: #FFFFFF;
+    stroke: ${props => props.theme.color};
     fill: transparent;
 `

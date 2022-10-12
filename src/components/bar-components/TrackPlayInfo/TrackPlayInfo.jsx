@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import NoteIcon from '../../common-components/NoteIcon'
 import LikeButton from '../../common-components/LikeButton'
 import {ImgSkeleton, TrackPlayLinkSkeleton} from '../TrackPlayInfoSkeleton/TrackPlayInfoSkeletons'
@@ -6,16 +6,16 @@ import {ImgSkeleton, TrackPlayLinkSkeleton} from '../TrackPlayInfoSkeleton/Track
 import * as S from './styles'
 import DislikeButton from "../../common-components/DislikeButton";
 import { LoadingContext } from "../../context/context";
-import { useContext } from "react";
-
+import { useTheme } from '../../../hook/useTheme'
 
 function TrackPlayInfo() {
-    const loading = useContext(LoadingContext) 
+    const loading = useContext(LoadingContext)
+    const { theme } = useTheme() 
 
     return (
         <S.PlayerTrackPlay>
             <S.TrackPlayContain>
-                <S.TrackPlayImage>
+                <S.TrackPlayImage theme={theme}>
                     {
                         loading
                         ? <ImgSkeleton />
@@ -24,18 +24,18 @@ function TrackPlayInfo() {
                           </S.TrackPlayImageSvg>  
                     }
                 </S.TrackPlayImage>
-                <S.TrackPlayAuthor>
+                <S.TrackPlayAuthor >
                     {
                         loading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAuthorLink href="#">Ты та...</S.TrackPlayAuthorLink>
+                        : <S.TrackPlayAuthorLink theme={theme} href="#" >Ты та...</S.TrackPlayAuthorLink>
                     }
                 </S.TrackPlayAuthor>
                 <S.TrackPlayAlbum>
                     {
                         loading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAlbumLink href="#">Баста</S.TrackPlayAlbumLink>
+                        : <S.TrackPlayAlbumLink theme={theme} href="#" >Баста</S.TrackPlayAlbumLink>
                     } 
                 </S.TrackPlayAlbum>
             </S.TrackPlayContain>

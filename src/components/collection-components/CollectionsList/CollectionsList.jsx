@@ -10,10 +10,10 @@ const CollectionsList = () => {
     return (
         <S.CollectionsList>
             {
-                COLLECTIONS_ITEMS.map((el, i) => (
+                COLLECTIONS_ITEMS.map(el => (
                     <CollectionsListItem 
-                        key={i} 
-                        title={el} 
+                        key={el.id} 
+                        title={el.title} 
                         backgroundColor={getRandomColor()}
                 />))
             }
