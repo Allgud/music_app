@@ -1,20 +1,31 @@
-import React, {useContext} from "react";
-import { LoadingContext } from '../../context/context'
+import React, { useState, useEffect } from "react";
 import Track from "../Track";
 import TrackSkeleton from "../TrackSkeleton";
 import * as S from "./styles";
-
-import { TRACKS }from '../../../constants/constants'
+import { useService } from '../../../hook/useService'
+import { SKELETONS_COUNT } from '../../../constants/constants'
 
 function PlayList() {
-    const loading = useContext(LoadingContext)
+    const { musicService, isLoading, toggleLoading } = useService()
+    const [ trackList, setTrackList ] = useState([])
 
-    const skeletons = Array(TRACKS.length).fill("", 0, 10).map((_, i) => <TrackSkeleton key={i}/>)
-    const trackList = TRACKS.map(elem => (<Track key={elem.id} track={elem} />))
+    useEffect(() => {
+        toggleLoading(true)
+        musicService.getAllTracks().then(data => {
+            setTrackList(data.results)
+            toggleLoading(false)
+        })
+    }, [])
+
+    const skeletons = Array(SKELETONS_COUNT).fill("", 0, 10).map((_, i) => <TrackSkeleton key={i}/>)
    
     return (
         <S.PlayList>
-            {loading ? skeletons : trackList }
+            {
+                isLoading 
+                ? skeletons 
+                : trackList.map(el => <Track key={el.id} track={el}/>) 
+            }
         </S.PlayList>
     )
 }

@@ -3,9 +3,11 @@ import NoteIcon from '../../common-components/NoteIcon'
 import * as S from './styles'
 import LikeButton from "../../common-components/LikeButton";
 import { useTheme } from '../../../hook/useTheme'
+import { convertDuration } from '../../../constants/constants'
 
 function Track({ track }) {
     const { theme } = useTheme()
+    const { name, author, album, duration_in_seconds: time } = track
 
     return (
         <S.PlayListItem>
@@ -18,7 +20,7 @@ function Track({ track }) {
                     </S.TrackTitleImage>
                     <S.TrackTitleText>
                         <S.TrackTitleLink>
-                            {track.title}
+                            {name}
                             <S.TrackTitleSpan>
                                 {track.advInfo}
                             </S.TrackTitleSpan>
@@ -26,16 +28,16 @@ function Track({ track }) {
                     </S.TrackTitleText>
                 </S.TrackTitle>
                 <S.TrackAuthor>
-                    <S.TrackAuthorLink>{track.author}</S.TrackAuthorLink>
+                    <S.TrackAuthorLink>{author}</S.TrackAuthorLink>
                 </S.TrackAuthor>
                 <S.TrackAlbum>
-                    <S.TrackAlbumLink>{track.album}</S.TrackAlbumLink>
+                    <S.TrackAlbumLink>{album}</S.TrackAlbumLink>
                 </S.TrackAlbum>
                 <S.TrackTime>
                     <S.TrackTimeSvg>
                         <LikeButton />
                     </S.TrackTimeSvg>
-                    <S.TrackTimeText>{track.time}</S.TrackTimeText>
+                    <S.TrackTimeText>{convertDuration(time)}</S.TrackTimeText>
                 </S.TrackTime>
             </S.PlayListTrack>
         </S.PlayListItem>
