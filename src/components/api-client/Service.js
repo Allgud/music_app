@@ -2,7 +2,7 @@ export class MusicService {
     
     BASE_URL = 'http://51.250.95.23:8000'
     
-    ALL_TRACKS_API = `${this.BASE_URL}/catalog/track/all/`
+    TRACKS_API = `${this.BASE_URL}/catalog/track`
 
     async getSourse(api) {
         const response = await fetch(api)
@@ -11,6 +11,6 @@ export class MusicService {
     }
 
     getAllTracks() {
-        return this.getSourse(this.ALL_TRACKS_API)
+        return this.getSourse(`${this.TRACKS_API}/all`)
     }
 }

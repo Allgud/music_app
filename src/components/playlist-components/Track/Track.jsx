@@ -4,13 +4,15 @@ import * as S from './styles'
 import LikeButton from "../../common-components/LikeButton";
 import { useTheme } from '../../../hook/useTheme'
 import { convertDuration } from '../../../constants/constants'
+import { useHandleBar } from '../../../hook/useHandleBar'
 
 function Track({ track }) {
     const { theme } = useTheme()
     const { name, author, album, duration_in_seconds: time } = track
+    const { handleShowBar } = useHandleBar()
 
     return (
-        <S.PlayListItem>
+        <S.PlayListItem onClick={() => handleShowBar(track)}>
             <S.PlayListTrack>
                 <S.TrackTitle>
                     <S.TrackTitleImage theme={theme}>

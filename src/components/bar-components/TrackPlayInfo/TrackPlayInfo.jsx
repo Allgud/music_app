@@ -1,23 +1,25 @@
-import React, { useContext } from "react";
+import React from "react";
 import NoteIcon from '../../common-components/NoteIcon'
 import LikeButton from '../../common-components/LikeButton'
 import {ImgSkeleton, TrackPlayLinkSkeleton} from '../TrackPlayInfoSkeleton/TrackPlayInfoSkeletons'
 
 import * as S from './styles'
 import DislikeButton from "../../common-components/DislikeButton";
-import { LoadingContext } from "../../context/context";
 import { useTheme } from '../../../hook/useTheme'
+import { useService } from '../../../hook/useService'
+import  { useHandleBar } from '../../../hook/useHandleBar'
 
 function TrackPlayInfo() {
-    const loading = useContext(LoadingContext)
-    const { theme } = useTheme() 
-
+    const { isLoading } = useService()
+    const { theme } = useTheme()
+    const { currentTrack } = useHandleBar()
+    console.log(currentTrack);
     return (
         <S.PlayerTrackPlay>
             <S.TrackPlayContain>
                 <S.TrackPlayImage theme={theme}>
                     {
-                        loading
+                        isLoading
                         ? <ImgSkeleton />
                         : <S.TrackPlayImageSvg>
                             <NoteIcon />
@@ -26,16 +28,16 @@ function TrackPlayInfo() {
                 </S.TrackPlayImage>
                 <S.TrackPlayAuthor >
                     {
-                        loading
+                        isLoading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAuthorLink theme={theme} href="#" >Ты та...</S.TrackPlayAuthorLink>
+                        : <S.TrackPlayAuthorLink theme={theme} href="#" >{currentTrack.name}</S.TrackPlayAuthorLink>
                     }
                 </S.TrackPlayAuthor>
                 <S.TrackPlayAlbum>
                     {
-                        loading
+                        isLoading
                         ? <TrackPlayLinkSkeleton />
-                        : <S.TrackPlayAlbumLink theme={theme} href="#" >Баста</S.TrackPlayAlbumLink>
+                        : <S.TrackPlayAlbumLink theme={theme} href="#" >{currentTrack.author}</S.TrackPlayAlbumLink>
                     } 
                 </S.TrackPlayAlbum>
             </S.TrackPlayContain>

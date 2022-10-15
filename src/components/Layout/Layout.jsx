@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { useTheme } from '../../hook/useTheme'
+import { useHandleBar } from '../../hook/useHandleBar'
 import CenterBlock from '../center-block-components/CenterBlock'
 import Nav from '../nav-components/Nav'
 import Sidebar from '../sidebar-components/Sidebar'
@@ -11,6 +12,7 @@ import * as S from './styles'
 
 const Layout = () => {
     const { theme } = useTheme()
+    const { showBar } = useHandleBar()
 
     return (
         <S.Wrapper theme={theme}>
@@ -20,7 +22,7 @@ const Layout = () => {
                     <Outlet />
                 </CenterBlock>
                 <Sidebar />
-                <Bar />
+                {showBar && <Bar />}
             </S.Container>
         </S.Wrapper>
     )
