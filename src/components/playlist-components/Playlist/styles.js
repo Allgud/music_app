@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlayList = styled.div`
+export const PlayList = styled.ul`
     display: flex;
     flex-direction: column;
     overflow-y: auto;

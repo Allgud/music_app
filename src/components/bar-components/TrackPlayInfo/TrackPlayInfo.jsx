@@ -13,7 +13,7 @@ function TrackPlayInfo() {
     const { isLoading } = useService()
     const { theme } = useTheme()
     const { currentTrack } = useHandleBar()
-    console.log(currentTrack);
+    
     return (
         <S.PlayerTrackPlay>
             <S.TrackPlayContain>

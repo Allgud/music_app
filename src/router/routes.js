@@ -14,16 +14,24 @@ const AppRoutes = () => (
     <AuthProvider>
         <HandleBarProvider>
             <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<MainPage />} />
-                    <Route path='auth' element={<AuthPage />} /> 
-                    <Route path='*' element={<NotFound />}/>
+                <Route path='/' element={<AuthPage />} />
+                <Route path='/main' element={<Layout />}>
+                    <Route index element={
+                        <RequireAuth>
+                            <MainPage />
+                        </RequireAuth>
+                    } />
                     <Route path='collections' element={
                         <RequireAuth>
                             <CollectionsPage />
                         </RequireAuth>
+                    }/>
+                    <Route path='*' element={
+                        <RequireAuth>
+                            <NotFound />
+                        </RequireAuth>
                     } />
-                </Route>
+                </Route> 
             </Routes>
         </HandleBarProvider>
     </AuthProvider>

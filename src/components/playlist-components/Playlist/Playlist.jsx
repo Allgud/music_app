@@ -13,7 +13,13 @@ function PlayList() {
         toggleLoading(true)
         musicService.getAllTracks().then(data => {
             setTrackList(data.results)
-            toggleLoading(false)
+            musicService.getAllTracks(2).then(data => {
+                setTrackList(prev => [...prev, ...data.results])
+                musicService.getAllTracks(3).then(data => {
+                    setTrackList(prev => [...prev, ...data.results])
+                    toggleLoading(false)
+                }) 
+            })
         })
     }, [])
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlayListItem = styled.div`
+export const PlayListItem = styled.li`
     width: 100%;
     display: block;
     margin-bottom: 12px;   
