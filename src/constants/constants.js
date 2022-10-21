@@ -108,3 +108,7 @@ export const themes = {
     }
 }
 
+const BASE_URL = 'http://51.250.95.23:8000'
+    
+export const TRACKS_API = `${BASE_URL}/catalog/track/all/`
+

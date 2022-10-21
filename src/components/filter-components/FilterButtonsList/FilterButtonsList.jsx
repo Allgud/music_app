@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import FilterButton from '../FilterButton'
 
 const buttonsContent = [
-    { selector: 'button-author', content: 'исполнителю', isActive: false},
-    { selector: 'button-year', content: 'году выпуска', isActive: false},
-    { selector: 'button-genre', content: 'жанру', isActive: false}
+    { id: 1, selector: 'button-author', content: 'исполнителю', isActive: false},
+    { id: 2, selector: 'button-year', content: 'году выпуска', isActive: false},
+    { id: 3, selector: 'button-genre', content: 'жанру', isActive: false}
 ]
 
 function FilterButtonsList() {
@@ -20,9 +20,9 @@ function FilterButtonsList() {
     return (
         <>
             {
-                state.map((elem, i) => (
+                state.map((elem) => (
                     <FilterButton 
-                        key={i + 1} 
+                        key={elem.id} 
                         content={elem.content} 
                         selector={elem.selector}
                         handleClick={handleClickedBtn}

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from './styles'
 import { useTheme } from '../../../hook/useTheme'
 
-function SearchInput({ inputValue, onInputChange }) {
+function SearchInput({ searchValue, onInputChange }) {
     const { theme } = useTheme()
 
     return (
@@ -12,7 +12,7 @@ function SearchInput({ inputValue, onInputChange }) {
             type="search"
             placeholder="Поиск"
             name="search"
-            value={inputValue}
+            value={searchValue}
         />
     )
 }
