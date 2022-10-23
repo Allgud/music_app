@@ -9,6 +9,37 @@ const TracksProvider = ({children}) => {
     const searchTracks = useSelector(state => state.tracks.searchValue)
     const [ currentTracks, setCurrentTracks ] = useState(tracks)
     const dispatch = useDispatch()
+    
+    const getChoosenTracks = (arr, activeSelector) => {
+        if(activeSelector === 'year') {
+            const filter = arr.join('')
+            const sorted = [...tracks].sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
+
+
+            if(filter === 'Более новые'){
+                setCurrentTracks(sorted.reverse())
+                return
+            }
+
+            if(filter === 'Более старые'){
+                setCurrentTracks(sorted)
+                return
+            } 
+        }
+        
+        const result = []
+        arr.forEach(el => {
+            result.push(...tracks.filter(track => track[activeSelector] === el));
+        })
+        if(result.length !== 0) {
+            setCurrentTracks(result)
+        }
+        return
+    }
+
+    const resetFilters = () => {
+        setCurrentTracks(tracks)
+    }
 
     useEffect(() => {
        dispatch(getAllTracks()) 
@@ -18,7 +49,7 @@ const TracksProvider = ({children}) => {
         setCurrentTracks(tracks.filter(el => el.name.toLowerCase().match(searchTracks)))
     }, [searchTracks])
 
-    const value = {currentTracks}
+    const value = {currentTracks, getChoosenTracks, resetFilters}
 
     return (
         <TracksContext.Provider value={value}>

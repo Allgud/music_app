@@ -7,9 +7,7 @@ export const convertDuration = (duration) => {
     return `${minutes}:${checkedSeconds()}`
 }
 
-export const FILTERS = {
-    year: [ 'Более новые', 'Более старые' ]
-}
+export const FILTERS_BY_YEAR = [ 'Более новые', 'Более старые' ]
 
 export const FILTER_BUTTONS = [
     { id: 1, selector: 'button-author', content: 'исполнителю', isActive: false},
