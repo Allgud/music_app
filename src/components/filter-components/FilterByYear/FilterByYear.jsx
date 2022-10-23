@@ -9,7 +9,7 @@ function FilterByYear({buttons}) {
     return (
         <S.FilterByYear theme={theme}>
             <S.FilterByYearItems>
-                {buttons.map(btn => <FilterByYearItem key={btn.id} value={btn.title} />)}
+                {buttons.map(btn => <FilterByYearItem key={btn} value={btn} />)}
             </S.FilterByYearItems>
         </S.FilterByYear>  
     )

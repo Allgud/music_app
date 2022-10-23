@@ -13,13 +13,16 @@ function PlayList() {
     const skeletons = Array(SKELETONS_COUNT).fill("", 0, 10).map((_, i) => <TrackSkeleton key={i}/>)
    
     return (
-        <S.PlayList>
-            {
-                status === 'loading'
-                ? skeletons 
-                : currentTracks.map(el => <Track key={el.id} track={el}/>) 
-            }
-        </S.PlayList>
+        
+            <S.PlayList>
+                {
+                    status === 'loading'
+                    ? skeletons 
+                    : currentTracks.map(el => <Track key={el.id} track={el}/>) 
+                }
+            </S.PlayList>
+      
+        
         
     )
 }

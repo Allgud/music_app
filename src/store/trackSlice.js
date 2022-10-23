@@ -20,12 +20,12 @@ const trackSlice = createSlice({
     initialState: {
         tracks: [],
         status: null,
-        searchValue: ''
+        searchValue: '',
     },
     reducers: {
         changeSearchValue(state, action) {
             state.searchValue = action.payload.searchValue
-        }
+        },
     },
     extraReducers: {
         [getAllTracks.pending]: (state) => {
@@ -43,5 +43,5 @@ const trackSlice = createSlice({
     }
 })
 
-export const { changeSearchValue } = trackSlice.actions
+export const { changeSearchValue, changeFilterValues } = trackSlice.actions
 export default trackSlice.reducer

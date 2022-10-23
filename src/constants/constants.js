@@ -8,27 +8,14 @@ export const convertDuration = (duration) => {
 }
 
 export const FILTERS = {
-    author: [
-        {id: 1, title: 'Michael Jackson'}, 
-        {id: 2, title: 'Frank Sinatra'}, 
-        {id: 3, title: 'Calvin Harris'}, 
-        {id: 4, title: 'Evanescense'}, 
-        {id: 5, title: 'Jay-Z'}, 
-        {id: 6, title: 'Clouns'}
-    ],
-    genre: [
-        {id: 1, title: 'Rock'},
-        {id: 2, title: 'Hip-Hop'},
-        {id: 3, title: 'Pop'},
-        {id: 4, title: 'Techno'}, 
-        {id: 5, title: 'Indi'},
-        {id: 6, title: 'R & B'}
-    ],
-    year: [
-        {id: 1, title: 'Более новые'}, 
-        {id: 2, title: 'Более старые'}
-    ]
+    year: [ 'Более новые', 'Более старые' ]
 }
+
+export const FILTER_BUTTONS = [
+    { id: 1, selector: 'button-author', content: 'исполнителю', isActive: false},
+    { id: 2, selector: 'button-year', content: 'году выпуска', isActive: false},
+    { id: 3, selector: 'button-genre', content: 'жанру', isActive: false}
+]
 
 export const COLLECTIONS_ITEMS = [
     {id: 1, title: 'Новинки недели'},

@@ -7,7 +7,8 @@ function FilterListItem({title}) {
 
     return (
         <S.FilterListItem theme={theme}>
-            {title}
+            <input type="checkbox" id={title}/>
+            <label htmlFor={title}>{title}</label>
         </S.FilterListItem>
     )
 }
