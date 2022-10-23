@@ -43,5 +43,5 @@ const trackSlice = createSlice({
     }
 })
 
-export const { changeSearchValue, changeFilterValues } = trackSlice.actions
+export const { changeSearchValue } = trackSlice.actions
 export default trackSlice.reducer

@@ -15,14 +15,15 @@ const TracksProvider = ({children}) => {
             const filter = arr.join('')
             const sorted = [...tracks].sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
 
-
             if(filter === 'Более новые'){
                 setCurrentTracks(sorted.reverse())
+               
                 return
             }
 
             if(filter === 'Более старые'){
                 setCurrentTracks(sorted)
+                
                 return
             } 
         }

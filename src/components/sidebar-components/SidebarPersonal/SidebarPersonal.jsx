@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from './styles'
-import { useAuth } from '../../../hook/useAuth'
+import { useSelector } from "react-redux";
 import { useTheme } from '../../../hook/useTheme'
 
 function SidebarPersonal() {
-    const { user } = useAuth()
+    const userLogin = useSelector(state => state.user.userLogin)
     const { theme } = useTheme()
 
     return (
@@ -12,7 +12,7 @@ function SidebarPersonal() {
             <S.SidebarPersonalName
                 theme={theme}
             >
-                {user ? user.username : 'Log In'}</S.SidebarPersonalName>
+                {userLogin ? userLogin : 'Log In'}</S.SidebarPersonalName>
             <S.SidebarAvatar theme={theme}/>
         </S.SidebarPersonal>
     )
