@@ -4,7 +4,7 @@ import NavMenuItem from "../NavMenuItem";
 import * as S from './styles'
 
 const links = [
-    {link: "/tracks", title: "Главное"}, 
+    {link: "/", title: "Главное"}, 
     {link: "/my-playlist", title: "Мой плейлист"}, 
     {link: "/", title: "Выйти"}
 ]

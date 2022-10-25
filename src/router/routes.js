@@ -12,23 +12,15 @@ import { HandleBarProvider } from '../providers/HandleBarProvider'
 const AppRoutes = () => (
     <HandleBarProvider>
         <Routes>
-            <Route path='/' element={<AuthPage />} />
-            <Route path='/main' element={<Layout />}>
-                <Route index element={
-                    <RequireAuth>
-                        <MainPage />
-                    </RequireAuth>
-                } />
+            <Route path='/auth' element={<AuthPage />} />
+            <Route path='/' element={<Layout />}>
+                <Route index element={<MainPage />} />
                 <Route path='collections' element={
                     <RequireAuth>
                         <CollectionsPage />
                     </RequireAuth>
                 }/>
-                <Route path='*' element={
-                    <RequireAuth>
-                        <NotFound />
-                    </RequireAuth>
-                } />
+                <Route path='*' element={<NotFound />} />
             </Route> 
         </Routes>
     </HandleBarProvider>

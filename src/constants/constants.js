@@ -31,7 +31,7 @@ export const getRandomColor = () => {
 }
 
 export const PAGES_TITLES = {
-    '/main': 'Треки',
+    '/': 'Треки',
     '/collections': "Мои подборки" 
 }
 

@@ -11,7 +11,7 @@ export const EnterButton = () => (
 
 export function SignUpButton({flag}) {
     return (
-        <S.SignUpButton
+        <S.SignUpButton 
             type="submit"
             $flag={flag}
         >

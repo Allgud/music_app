@@ -4,15 +4,11 @@ import axios from "axios";
 
 export const getAllTracks = createAsyncThunk(
     'tracks/getAllTracks',
-    async function() {
-        const resultData = await Promise.all([
-            axios.get(TRACKS_API),
-            axios.get(`${TRACKS_API}?page=2`),
-            axios.get(`${TRACKS_API}?page=3`)
-        ])
+    async function () {
+        const response = await axios.get(TRACKS_API)
 
-        return resultData
-    } 
+        return response.data
+    }
 )
 
 const trackSlice = createSlice({
@@ -34,11 +30,6 @@ const trackSlice = createSlice({
         [getAllTracks.fulfilled]: (state, action) => {
             state.status = 'resolved'
             state.tracks = action.payload
-            .map(el => ([...el.data.results]))
-            .reduce((acc, el) => {
-                acc.push(...el)            
-                return acc
-            }, [])
         }
     }
 })

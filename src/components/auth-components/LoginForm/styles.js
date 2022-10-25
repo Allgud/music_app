@@ -55,3 +55,9 @@ export const LogoImg = styled.img`
 export const ButtonBox = styled.div`
     margin-top: 40px;
 `
+
+export const ErrorMessage = styled.p`
+    textAlign: center,
+    marginTop: 1rem,
+    color: 'coral'
+`

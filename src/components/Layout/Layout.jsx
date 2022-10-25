@@ -7,9 +7,7 @@ import CenterBlock from '../center-block-components/CenterBlock'
 import Nav from '../nav-components/Nav'
 import Sidebar from '../sidebar-components/Sidebar'
 import Bar from '../bar-components/Bar'
-
 import * as S from './styles'
-
 
 const Layout = () => {
     const { theme } = useTheme()
