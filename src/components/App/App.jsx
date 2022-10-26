@@ -1,27 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { checkIsUser } from "../../store/userSlice";
 import { useTheme } from '../../hook/useTheme'
-import { getUsername } from "../../store/userSlice";
 import AppRoutes from "../../router/routes";
 import GStyles from "./global";
 
 const App = () => {
   const { theme } = useTheme()
-  const isUser = useSelector(state => state.user.isUser)
-  const auth = useSelector(state => state.user.auth)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
-      dispatch(getUsername())
+    dispatch(checkIsUser())
   }, [])
-
-  useEffect(() => {
-    if(!isUser || !auth) {
-      navigate('/auth')
-    }
-  }, [dispatch])
 
   return (
     <>

@@ -1,20 +1,15 @@
 import React from "react";
 import NavMenuItem from "../NavMenuItem";
+import { NAV_LINKS } from '../../../constants/constants'
 
 import * as S from './styles'
-
-const links = [
-    {link: "/", title: "Главное"}, 
-    {link: "/my-playlist", title: "Мой плейлист"}, 
-    {link: "/", title: "Выйти"}
-]
 
 function NavMenuList() {
   
     return (
         <S.NavMenuList>
             {
-              links.map((item, i) => (<NavMenuItem key={i} link={item.link} title={item.title} />)) 
+              NAV_LINKS .map((item, i) => (<NavMenuItem key={i} link={item.link} title={item.title} />)) 
             }
         </S.NavMenuList>
     )

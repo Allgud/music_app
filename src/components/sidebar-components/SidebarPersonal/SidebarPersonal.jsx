@@ -4,15 +4,13 @@ import { useSelector } from "react-redux";
 import { useTheme } from '../../../hook/useTheme'
 
 function SidebarPersonal() {
-    const userLogin = useSelector(state => state.user.userLogin)
+    const username = useSelector(state => state.user.user.username)
+    
     const { theme } = useTheme()
 
     return (
         <S.SidebarPersonal>
-            <S.SidebarPersonalName
-                theme={theme}
-            >
-                {userLogin ? userLogin : 'Log In'}</S.SidebarPersonalName>
+            <S.SidebarPersonalName theme={theme}>{username}</S.SidebarPersonalName>
             <S.SidebarAvatar theme={theme}/>
         </S.SidebarPersonal>
     )
