@@ -11,7 +11,7 @@ function NavMenuItem({ link, title }) {
     
     return (
         <S.NavMenuItem>
-            <S.NavMenuItemLink to={link} theme={theme} onClick={dispatch(logout(title))}>{title}</S.NavMenuItemLink>
+            <S.NavMenuItemLink to={link} theme={theme} onClick={() => dispatch(logout(title))}>{title}</S.NavMenuItemLink>
         </S.NavMenuItem>
     )
 }

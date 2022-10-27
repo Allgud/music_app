@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { checkIsUser } from "../../store/userSlice";
+import { checkIsUser, checkIsAuth } from "../../store/userSlice";
 import { useTheme } from '../../hook/useTheme'
 import AppRoutes from "../../router/routes";
 import GStyles from "./global";
@@ -11,6 +11,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkIsUser())
+    dispatch(checkIsAuth())
   }, [])
 
   return (

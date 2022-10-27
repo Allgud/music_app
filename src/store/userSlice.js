@@ -11,7 +11,7 @@ export const login = createAsyncThunk(
                 axios.post(`${USER_API}/token/`, {email: obj.email, password: obj.password})
             ])
             
-            localStorage.setItem('token', response[1].data.access)
+            localStorage.setItem('token', response[1].data.refresh )
             return response
         }
         catch (error){
@@ -30,10 +30,24 @@ export const signup = createAsyncThunk(
                 password: obj.password
             })
             
+
             return response
         } catch (error) {
             return rejectWithValue(error.response)
         }   
+    }
+)
+
+export const refreshToken = createAsyncThunk(
+    'user/refreshToken',
+    async function() {
+        const response = await axios.post(`${USER_API}/token/refresh/`, 
+            {
+                refresh: `${localStorage.getItem('token')}`
+            }
+        )
+        localStorage.setItem('token', response.data.refresh)
+        return response
     }
 )
 
@@ -45,22 +59,26 @@ const userSlice = createSlice({
         status: '',
         isUser: false,
         message: null,
+        accessToken: null,
     },
     reducers: {
         logout(state, action) {
-            if(action.payload === '"Выйти"'){
+            if(action.payload === "Выйти"){
                 localStorage.removeItem('token')
                 state.isAuth = false
                 state.user.username = ''
                 return
             }
-            return 
         }, 
         checkIsUser(state) {
-            const id = localStorage.getItem('music_app')
-            if(id) {
+            if(localStorage.getItem('music_app')) {
                 state.isUser = true
             } 
+        },
+        checkIsAuth(state) {
+            if(localStorage.getItem('token')){
+                state.isAuth = true
+            }
         },
         alreadyHaveAccount(state) {
             localStorage.setItem('music_app', 'unknown_id')
@@ -72,8 +90,9 @@ const userSlice = createSlice({
             state.status = 'resolved'
             const { username, email } = action.payload[0].data
             state.isAuth = true
-            state.user.username = username,
-            state.user.email = email 
+            state.user.username = username
+            state.user.email = email
+            state.accessToken = action.payload[1].data.access 
         },
         [login.rejected]: (state, action) => {
             state.status = 'error',
@@ -90,8 +109,11 @@ const userSlice = createSlice({
         //         state.message = action.payload.data[key]
         //     }
         // }
+        [refreshToken.fulfilled]: (state, action) => {
+            state.accessToken = action.payload.data.access
+        } 
     }
 })
 
-export const { checkIsUser, logout, alreadyHaveAccount } = userSlice.actions
+export const { checkIsUser, checkIsAuth, logout, alreadyHaveAccount } = userSlice.actions
 export default userSlice.reducer

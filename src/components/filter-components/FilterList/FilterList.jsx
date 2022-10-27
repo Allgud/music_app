@@ -1,63 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { sortByFilter, resetFilters } from '../../../store/trackSlice'
 import FilterByYear from "../FilterByYear";
 import FilterListItem from '../FilterListItem'
-import { useTracks } from '../../../hook/useTracks'
 import { useTheme } from '../../../hook/useTheme'
-import { FILTERS_BY_YEAR } from "../../../constants/constants";
 import * as S from "./styles"
 
-function FilterList({ filter }) {
-    const tracks = useSelector(state => state.tracks.tracks)
-    const { getChoosenTracks } = useTracks() 
-    const [ state, setState ] = useState([])
-    const [ choosenFilters, setChoosenFilters ] = useState([])
-    const [activeSelector, setActiveSelector] = useState('')
+function FilterList({selector}) {
+    const activeFilter = selector.split('-')[1] 
+    const { filters } = useSelector(state => state.tracks)
     const { theme } = useTheme()
+    const [ pickedFilters, setPikedFilters ] = useState([])
+    const dispatch = useDispatch()
 
-    const pickFilters = (title) => {
-      const pickedFilters = []
-      pickedFilters.push(title)
-      if(activeSelector === 'year') {
-        setChoosenFilters(pickedFilters)
+    const pickFilters = (text) => {
+      if(activeFilter === 'year'){
+        setPikedFilters(text.split())
         return
       }
-      setChoosenFilters(prev => prev.concat(pickedFilters))
-    }
-
-    const createFilterList = (filter) => {
-      if(filter === 'year') {
-        setState(FILTERS_BY_YEAR)
-        return
-      }
-
-      const filterList = new Set(tracks.map(el => el[filter]))
-      setState(Array.from(filterList))
-    }
-    
-    const handleFilters = string => { 
-      createFilterList(string.split('-')[1])
-      setActiveSelector(string.split('-')[1]) 
+      setPikedFilters(prev => [...prev, text])
     }
 
     useEffect(() => {
-      handleFilters(filter)
-    }, [])
-    
+      dispatch(sortByFilter({pickedFilters, activeFilter}));
+    }, [pickedFilters])
+
     useEffect(() => {
-      getChoosenTracks(choosenFilters, activeSelector)
-    }, [choosenFilters])
+      dispatch(resetFilters())
+    }, [activeFilter])
 
     return (
       <>
           {
-              activeSelector === 'year' 
-              ? <FilterByYear buttons={state} pickFilters={pickFilters}/> 
+              activeFilter === 'year' 
+              ? <FilterByYear onClickTitle={pickFilters}/> 
               : <S.FilterList
                   theme={theme}
-                  $activeSelector={activeSelector}
+                  $activeSelector={activeFilter}
                 >
-                  {state.map(el => <FilterListItem key={el} title={el} pickFilters={pickFilters}/>)}
+                  {filters[activeFilter].map(el => <FilterListItem key={el} title={el} onClickTitle={pickFilters}/>)}
               </S.FilterList>
           }
       </>

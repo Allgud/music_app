@@ -10,7 +10,7 @@ function SidebarPersonal() {
 
     return (
         <S.SidebarPersonal>
-            <S.SidebarPersonalName theme={theme}>{username}</S.SidebarPersonalName>
+            {username ?<S.SidebarPersonalName theme={theme}>{username}</S.SidebarPersonalName> : 'Log In'}
             <S.SidebarAvatar theme={theme}/>
         </S.SidebarPersonal>
     )

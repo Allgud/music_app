@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from './styles';
 import { useTheme } from '../../../hook/useTheme'
 
-function FilterListItem({title, pickFilters}) {
+function FilterListItem({title, onClickTitle}) {
     const [isChecked, setIsChecked] = useState(false)
     const { theme } = useTheme()
 
@@ -13,7 +13,7 @@ function FilterListItem({title, pickFilters}) {
     return (
         <S.FilterListItem theme={theme}>
             <input type="checkbox" id={title} checked={isChecked} onChange={toggleChecked} />
-            <label htmlFor={title} onClick={() => pickFilters(title)}>{title}</label>
+            <label htmlFor={title} onClick={() => onClickTitle(title)}>{title}</label>
         </S.FilterListItem>
     )
 }

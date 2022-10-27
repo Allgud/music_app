@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllTracks } from '../store/trackSlice'
+import { useSelector} from "react-redux";
+
 
 export const TracksContext = createContext()
 
@@ -8,8 +8,7 @@ const TracksProvider = ({children}) => {
     const tracks = useSelector(state => state.tracks.tracks)
     const searchTracks = useSelector(state => state.tracks.searchValue)
     const [ currentTracks, setCurrentTracks ] = useState(tracks)
-    const dispatch = useDispatch()
-    
+
     const getChoosenTracks = (arr, activeSelector) => {
         if(activeSelector === 'year') {
             const filter = arr.join('')
@@ -38,19 +37,13 @@ const TracksProvider = ({children}) => {
         return
     }
 
-    const resetFilters = () => {
-        setCurrentTracks(tracks)
-    }
 
-    useEffect(() => {
-       dispatch(getAllTracks()) 
-    }, [])
 
     useEffect(() => {
         setCurrentTracks(tracks.filter(el => el.name.toLowerCase().match(searchTracks)))
     }, [searchTracks])
 
-    const value = {currentTracks, getChoosenTracks, resetFilters}
+    const value = {currentTracks, getChoosenTracks}
 
     return (
         <TracksContext.Provider value={value}>
