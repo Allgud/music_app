@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStatus } from '../../../hook/useStatus'
+import { useSelector } from "react-redux";
 import { useTheme } from '../../../hook/useTheme'
 
 import * as S from './styles'
@@ -7,7 +7,7 @@ import * as S from './styles'
 const BarPlayerProgress = ({audio}) => {
     const duration = Math.round(audio?.current?.duration)
     const [currentTime, setCurrentTime] = useState(0)
-    const { isPlaying } = useStatus()
+    const isPlaying = useSelector(state => state.bar.isPlaying)
     const { theme } = useTheme()
 
     useEffect(() => {

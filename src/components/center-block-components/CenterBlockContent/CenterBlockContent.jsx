@@ -1,6 +1,6 @@
 import React from "react";
-import PlayList from "../PlayList";
-import PlayListTitle from "../PlayListTitle";
+import PlayList from "../../playlist-components/Playlist";
+import PlayListTitle from "../../playlist-components/PlayListTitle";
 import * as S from './styles'
 
 function CenterBlockContent() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { changeSearchValue } from '../../../store/trackSlice'
+import { searchTracks } from '../../../store/trackSlice'
 import SearchIcon from "../SearchIcon"
 import SearchInput from '../SearchInput'
 import { useTheme } from '../../../hook/useTheme'
@@ -16,7 +16,7 @@ function CenterBlockSearch() {
     }
 
     useEffect(() => {
-        dispatch(changeSearchValue({searchValue}))
+        dispatch(searchTracks(searchValue))
     }, [searchValue])
 
     return (

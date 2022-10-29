@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from 'react-redux'
 import {PrevBtn, PlayBtn, PauseBtn, NextBtn, RepeatBtn, ShuffleBtn} from '../PlayerButtons/PlayerButtons'
-import { useStatus } from "../../../hook/useStatus";
-import { HandlerContext } from "../../context/context";
 import * as S from './styles'
 
 function PlayerControls() {
-    const { isPlaying} = useStatus()
-    const { handlePlayPauseClick }= useContext(HandlerContext)
+    const isPlaying = useSelector(state => state.bar.isPlaying)
 
     return (
-        <S.PlayerControls onClick={() => handlePlayPauseClick(!isPlaying)}>
+        <S.PlayerControls>
             <PrevBtn />
             { isPlaying ? <PauseBtn /> : <PlayBtn /> }
             <NextBtn />

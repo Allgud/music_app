@@ -1,16 +1,20 @@
 import React from "react";
-import NavMenuItem from "../NavMenuItem";
-import { NAV_LINKS } from '../../../constants/constants'
+import { useTheme } from "../../../hook/useTheme";
+import { getAllFavoriteTracks, resetFilters } from "../../../store/trackSlice";
+import { logout } from '../../../store/userSlice'
+import { useDispatch } from "react-redux";
 
 import * as S from './styles'
 
 function NavMenuList() {
+    const { theme } = useTheme()
+    const dispatch = useDispatch()
   
     return (
-        <S.NavMenuList>
-            {
-              NAV_LINKS .map((item, i) => (<NavMenuItem key={i} link={item.link} title={item.title} />)) 
-            }
+        <S.NavMenuList $theme={theme}>
+            <S.NavMenuItem onClick={() => dispatch(resetFilters())}/>Главная
+            <S.NavMenuItem onClick={() => dispatch(getAllFavoriteTracks())}/>Мой плейлист
+            <S.NavMenuItem onClick={() => dispatch(logout())}/>Выйти
         </S.NavMenuList>
     )
 }

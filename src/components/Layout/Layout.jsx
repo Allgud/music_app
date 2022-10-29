@@ -1,8 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { useTheme } from '../../hook/useTheme'
-import { useHandleBar } from '../../hook/useHandleBar'
-import TracksProvider from '../../providers/TracksProvider'
 import CenterBlock from '../center-block-components/CenterBlock'
 import Nav from '../nav-components/Nav'
 import Sidebar from '../sidebar-components/Sidebar'
@@ -11,19 +10,17 @@ import * as S from './styles'
 
 const Layout = () => {
     const { theme } = useTheme()
-    const { showBar } = useHandleBar()
+    const isVisible = useSelector(state => state.bar.isVisible)
 
     return (
         <S.Wrapper theme={theme}>
             <S.Container theme={theme}>
-                <TracksProvider>
-                    <Nav />
-                    <CenterBlock>
-                        <Outlet />
-                    </CenterBlock>
-                    <Sidebar />
-                    {showBar && <Bar />}
-                </TracksProvider>
+                <Nav />
+                <CenterBlock>
+                    <Outlet />
+                </CenterBlock>
+                <Sidebar />
+                {isVisible && <Bar />}
             </S.Container>
         </S.Wrapper>
     )

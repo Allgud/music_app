@@ -36,9 +36,9 @@ export const PAGES_TITLES = {
 }
 
 export const NAV_LINKS  = [
-    {link: "/", title: "Главное"}, 
-    {link: "/my-playlist", title: "Мой плейлист"}, 
-    {link: "/auth", title: "Выйти"}
+    {link: "/", title: "Главное" }, 
+    {link: "/", title: "Мой плейлист" }, 
+    {link: "/auth", title: "Выйти" }
 ]
 
 const COLORS = {
@@ -101,6 +101,6 @@ export const themes = {
 
 const BASE_URL = 'http://51.250.95.23:8000'
     
-export const TRACKS_API = `${BASE_URL}/catalog`
+export const TRACKS_API = `${BASE_URL}/catalog/track`
 
 export const USER_API = `${BASE_URL}/user`

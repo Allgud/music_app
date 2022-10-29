@@ -38,23 +38,11 @@ export const signup = createAsyncThunk(
     }
 )
 
-export const refreshToken = createAsyncThunk(
-    'user/refreshToken',
-    async function() {
-        const response = await axios.post(`${USER_API}/token/refresh/`, 
-            {
-                refresh: `${localStorage.getItem('token')}`
-            }
-        )
-        localStorage.setItem('token', response.data.refresh)
-        return response
-    }
-)
-
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: {},
+        username: null,
+        email: null,
         isAuth: false,
         status: '',
         isUser: false,
@@ -62,13 +50,10 @@ const userSlice = createSlice({
         accessToken: null,
     },
     reducers: {
-        logout(state, action) {
-            if(action.payload === "Выйти"){
-                localStorage.removeItem('token')
-                state.isAuth = false
-                state.user.username = ''
-                return
-            }
+        logout(state) {
+            localStorage.removeItem('token')
+            state.isAuth = false
+            state.user.username = null
         }, 
         checkIsUser(state) {
             if(localStorage.getItem('music_app')) {
@@ -90,8 +75,8 @@ const userSlice = createSlice({
             state.status = 'resolved'
             const { username, email } = action.payload[0].data
             state.isAuth = true
-            state.user.username = username
-            state.user.email = email
+            state.username = username
+            state.email = email
             state.accessToken = action.payload[1].data.access 
         },
         [login.rejected]: (state, action) => {
@@ -109,9 +94,6 @@ const userSlice = createSlice({
         //         state.message = action.payload.data[key]
         //     }
         // }
-        [refreshToken.fulfilled]: (state, action) => {
-            state.accessToken = action.payload.data.access
-        } 
     }
 })
 

@@ -3,17 +3,13 @@ import React, {useState, createContext} from 'react'
 export const StatusContext = createContext()
 
 export const StatusProvider = ({children}) => {
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [ onRepeat, setOnRepeat ] = useState(false)
 
-    const onPlayClick = () => {
-        setIsPlaying(true)
+    const onRepeatClick = () => {
+        setOnRepeat(prev => !prev)
     }
 
-    const onPauseClick = () => {
-        setIsPlaying(false)
-    }
-
-    const value = {isPlaying, onPlayClick, onPauseClick}
+    const value = { onRepeat, onRepeatClick }
 
     return (
         <StatusContext.Provider value={value}>

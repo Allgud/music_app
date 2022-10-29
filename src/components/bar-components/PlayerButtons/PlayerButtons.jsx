@@ -1,7 +1,12 @@
 import React from "react";
 import { HandySvg } from 'handy-svg'
-import { useStatus } from '../../../hook/useStatus'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTheme } from '../../../hook/useTheme'
+import { shuffleTracks } from "../../../store/trackSlice";
+import { getNextTrack, getPrevTrack } from '../../../store/barSlice'
+
+import { useStatus } from '../../../hook/useStatus'
+import { togglePlayPause } from "../../../store/barSlice";
 
 import nextSvg from '../../../img/icon/next.svg'
 import playSvg from '../../../img/icon/play.svg'
@@ -15,8 +20,10 @@ import * as S from './styles'
 
 export const NextBtn = () => {
     const { theme } = useTheme()
+    const dispatch = useDispatch()
+    const currentTrack = useSelector(state => state.bar.currentTrack)
     return (
-        <S.NextBtn>
+        <S.NextBtn onClick={() => dispatch(getNextTrack(currentTrack.id))}>
             <S.NextBtnSvg theme={theme}>
                 <HandySvg 
                     src={nextSvg}
@@ -29,8 +36,10 @@ export const NextBtn = () => {
 
 export const PrevBtn = () => {
     const { theme } = useTheme()
+    const dispatch = useDispatch()
+    const currentTrack = useSelector(state => state.bar.currentTrack)
     return (
-        <S.PrevBtn>
+        <S.PrevBtn onClick={() => dispatch(getPrevTrack(currentTrack.id))}>
             <S.PrevBtnSvg theme={theme}>
                 <HandySvg 
                     src={prevSvg}
@@ -42,12 +51,10 @@ export const PrevBtn = () => {
 }
 
 export const PlayBtn = () => {
-    const { onPlayClick } = useStatus()
     const { theme } = useTheme()
+    const dispatch = useDispatch()
     return (
-        <S.PlayBtn 
-            onClick={onPlayClick} 
-        >
+        <S.PlayBtn onClick={() => dispatch(togglePlayPause())}>
             <S.PlayBtnSvg theme={theme}>
                 <HandySvg 
                     src={playSvg}
@@ -60,8 +67,9 @@ export const PlayBtn = () => {
 
 export const RepeatBtn = () => {
     const { theme } = useTheme()
+    const { onRepeatClick } = useStatus()
     return (
-        <S.RepeatBtn>
+        <S.RepeatBtn onClick = {() => onRepeatClick()}>
             <S.RepeatBtnSvg theme={theme}>
                 <HandySvg 
                     src={repeatSvg}
@@ -74,8 +82,10 @@ export const RepeatBtn = () => {
 
 export const ShuffleBtn = () => {
     const { theme } = useTheme()
+    const dispatch = useDispatch()
+    
     return (
-        <S.ShuffleBtn>
+        <S.ShuffleBtn onClick={() => dispatch(shuffleTracks())}>
             <S.ShuffleBtnSvg theme={theme}>
                 <HandySvg 
                     src={shuffleSvg}
@@ -101,12 +111,10 @@ export const VolumeImage = () => {
 }
 
 export const PauseBtn = () => {
-    const { onPauseClick } = useStatus()
     const { theme } = useTheme()
+    const dispatch = useDispatch()
     return (
-        <S.PlayBtn 
-            onClick={onPauseClick}
-        >
+        <S.PlayBtn onClick={() => dispatch(togglePlayPause())}>
             <S.PlayBtnSvg theme={theme}>
                 <HandySvg 
                     src={pauseSvg}
