@@ -30,7 +30,7 @@ function LoginForm() {
                     <S.SignUpButton type='button' $flag={isUser} onClick={() => dispatch(signup({username, email, password}))}>Зарегистрироваться</S.SignUpButton>
                 </S.ButtonBox>
             </S.Form>
-            {!isUser && <S.NavLinkToAuth to={'/auth'} onClick={() => dispatch(alreadyHaveAccount())}>Уже есть аккаунт</S.NavLinkToAuth>}
+            {(!isUser && status !== 'error') && <S.NavLinkToAuth to={'/auth'} onClick={() => dispatch(alreadyHaveAccount())}>Уже есть аккаунт</S.NavLinkToAuth>}
             {status === 'error' && <S.ErrorMessage>{message}</S.ErrorMessage>}  
         </S.FormBox>
     )

@@ -53,17 +53,12 @@ const userSlice = createSlice({
         logout(state) {
             localStorage.removeItem('token')
             state.isAuth = false
-            state.user.username = null
+            state.username = null
         }, 
         checkIsUser(state) {
             if(localStorage.getItem('music_app')) {
                 state.isUser = true
             } 
-        },
-        checkIsAuth(state) {
-            if(localStorage.getItem('token')){
-                state.isAuth = true
-            }
         },
         alreadyHaveAccount(state) {
             localStorage.setItem('music_app', 'unknown_id')
@@ -87,15 +82,13 @@ const userSlice = createSlice({
             localStorage.setItem('music_app', action.payload.data.id)
             state.isUser = true
         },
-        // [signup.rejected]: (state,action) => {
-        //     state.status = 'error'
-        //     if(action.payload.status > 399) {
-        //         const key = Object.keys(action.payload.data)
-        //         state.message = action.payload.data[key]
-        //     }
-        // }
+        [signup.rejected]: (state, action) => {
+            state.status = 'error'
+            const keys = Object.keys(action.payload.data)
+            state.message = action.payload.data[keys[0]]
+        }
     }
 })
 
-export const { checkIsUser, checkIsAuth, logout, alreadyHaveAccount } = userSlice.actions
+export const { checkIsUser, logout, alreadyHaveAccount } = userSlice.actions
 export default userSlice.reducer

@@ -70,25 +70,26 @@ export const TrackPlayLike = styled.button`
     border: none;
     outline: none;
     background: transparent;
-
-    &:hover svg{
-        fill: transparent;
-        stroke: #ACACAC;
-        cursor: pointer; 
-    }
-
-    &:active svg {
-        fill: transparent;
-        stroke: #${props => props.theme.color};
-        cursor: pointer; 
-    }
+    fill: transparent;
 `
 
 export const TrackPlayLikeSvg = styled.svg`
     width: 14px;
     height: 12px;
-    fill: ${props => props.$liked ? '#696969' : 'transparent'};
     stroke: #696969;
+    fill: ${props => props.$liked ? '#696969' : 'transparent'}
+
+    &:hover{
+        fill: transparent;
+        stroke: #ACACAC;
+        cursor: pointer; 
+    }
+
+    &:active {
+        fill: transparent;
+        stroke: #${props => props.theme.color};
+        cursor: pointer; 
+    }
 `
 
 export const TrackPlayDislike = styled(TrackPlayLike)`

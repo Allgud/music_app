@@ -58,9 +58,9 @@ export const ButtonBox = styled.div`
 `
 
 export const ErrorMessage = styled.p`
-    textAlign: center,
-    marginTop: 1rem,
-    color: 'coral'
+    text-align: center;
+    margin: 0.5rem 0;
+    color: coral;
 `
 
 const Button = styled.button`

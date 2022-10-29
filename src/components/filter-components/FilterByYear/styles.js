@@ -13,6 +13,7 @@ export const FilterByYear = styled.div`
     top: 50px;
     left: 240px;
     background-color: ${props => props.theme.filterListBack};
+    z-index: 100;
 `
 
 export const FilterByYearItems = styled.div`

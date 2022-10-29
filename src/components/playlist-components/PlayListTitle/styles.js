@@ -6,7 +6,7 @@ export const PlayListTitle = styled.div`
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    top: 0;
+    top: 64px;
     left: 0;
 `
 
