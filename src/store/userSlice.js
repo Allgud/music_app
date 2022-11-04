@@ -52,6 +52,7 @@ const userSlice = createSlice({
     reducers: {
         logout(state) {
             localStorage.removeItem('token')
+            localStorage.removeItem('username')
             state.isAuth = false
             state.username = null
         }, 
@@ -63,6 +64,12 @@ const userSlice = createSlice({
         alreadyHaveAccount(state) {
             localStorage.setItem('music_app', 'unknown_id')
             state.isUser = true
+        },
+        checkIsAuth(state) {
+            if(localStorage.getItem('token') && localStorage.getItem('username')) {
+                state.isAuth = true
+                state.username = localStorage.getItem('username')
+            }
         } 
     },
     extraReducers: {
@@ -72,7 +79,8 @@ const userSlice = createSlice({
             state.isAuth = true
             state.username = username
             state.email = email
-            state.accessToken = action.payload[1].data.access 
+            state.accessToken = action.payload[1].data.access
+            localStorage.setItem('username', `${username}`) 
         },
         [login.rejected]: (state, action) => {
             state.status = 'error',

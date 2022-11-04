@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 import { useTheme } from '../../../hook/useTheme'
 
 function SidebarPersonal() {
-    const username = useSelector(state => state.user.username)
-    
+    const { username } = useSelector(state => state.user)
     const { theme } = useTheme()
     
     return (
