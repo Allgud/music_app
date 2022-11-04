@@ -3,9 +3,7 @@ import { HandySvg } from 'handy-svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTheme } from '../../../hook/useTheme'
 import { shuffleTracks } from "../../../store/trackSlice";
-import { getNextTrack, getPrevTrack } from '../../../store/barSlice'
-
-import { useStatus } from '../../../hook/useStatus'
+import { getNextTrack, getPrevTrack, toggleRepeat } from '../../../store/barSlice'
 import { togglePlayPause } from "../../../store/barSlice";
 
 import nextSvg from '../../../img/icon/next.svg'
@@ -67,10 +65,11 @@ export const PlayBtn = () => {
 
 export const RepeatBtn = () => {
     const { theme } = useTheme()
-    const { onRepeatClick } = useStatus()
+    const onRepeat = useSelector(state => state.bar.onRepeat)
+    const dispatch = useDispatch()
     return (
-        <S.RepeatBtn onClick = {() => onRepeatClick()}>
-            <S.RepeatBtnSvg theme={theme}>
+        <S.RepeatBtn onClick = {() => dispatch(toggleRepeat())}>
+            <S.RepeatBtnSvg theme={theme} $repeat={onRepeat}>
                 <HandySvg 
                     src={repeatSvg}
                     alt="repeat"

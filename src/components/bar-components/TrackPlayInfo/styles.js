@@ -70,14 +70,13 @@ export const TrackPlayLike = styled.button`
     border: none;
     outline: none;
     background: transparent;
-    fill: transparent;
+    fill: ${props => props.$liked ? '#696969' : 'transparent'}
 `
 
 export const TrackPlayLikeSvg = styled.svg`
     width: 14px;
     height: 12px;
     stroke: #696969;
-    fill: ${props => props.$liked ? '#696969' : 'transparent'}
 
     &:hover{
         fill: transparent;

@@ -1,46 +1,36 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from 'react-redux'
-import { StatusProvider } from '../../../providers/StatusProvider'
 import { useTheme } from '../../../hook/useTheme'
-import { HandlerContext } from "../../context/context";
 import BarPlayerProgress from "../BarPlayerProgress";
 import BarPlayerBlock from "../BarPlayerBlock";
 import * as S from './styles'
-import { useEffect } from "react";
 
 const Bar = () => {
-    const isPlaing = useSelector(state => state.bar.isPlaing)
-    const [ volume, setVolume ] = useState(50)
+    const audio = useRef()
+    const { isPlaying, seekTime } = useSelector(state => state.bar)
     const { theme } = useTheme()
-    const trackRef = useRef()
-
-    const handleVolume = ({target}) => {
-        setVolume(target.value)
-        trackRef.current.volume = volume / 100
-    }
 
     useEffect(() => {
-        if(isPlaing) {
-            trackRef.current.play()
-            return 
-        }
-        if(!isPlaing) {
-            trackRef.current.pause()
+        if (isPlaying) {
+            audio.current.play()
             return
         }
-    })
+        if (!isPlaying) {
+            audio.current.pause()
+        }
+    }, [isPlaying])
+
+    useEffect(() => {
+        audio.current.currentTime = seekTime
+    }, [seekTime])
 
     return (
-        <StatusProvider>
-            <S.Bar theme={theme}>
-                <S.BarContent>
-                    <BarPlayerProgress audio={trackRef}/>
-                    <HandlerContext.Provider value={{trackRef, volume, handleVolume}}>
-                        <BarPlayerBlock />
-                    </HandlerContext.Provider>
-                </S.BarContent>
-            </S.Bar>
-        </StatusProvider>
+        <S.Bar theme={theme}>
+            <S.BarContent>
+                <BarPlayerProgress trackRef={audio} />
+                <BarPlayerBlock trackRef={audio} />
+            </S.BarContent>
+        </S.Bar>
     )
 }
 

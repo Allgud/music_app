@@ -13,7 +13,7 @@ function TrackPlayInfo() {
     const { currentTrack, status } = useSelector(state => state.bar)
     const username = useSelector(state => state.user.username)
     const [ liked, setLiked ] = useState(false)
-    const { stared_user } = currentTrack
+    const stared = currentTrack?.stared_user
     const dispatch = useDispatch()
 
     const onLikeClick = (id) => {
@@ -27,7 +27,7 @@ function TrackPlayInfo() {
     } 
 
     useEffect(() => {
-        if(stared_user.find(el => el.username === username)) {
+        if(stared?.find(el => el.username === username)) {
             setLiked(true)
         }
     },[currentTrack])
@@ -53,8 +53,8 @@ function TrackPlayInfo() {
                 </S.TrackPlayAlbum>
             </S.TrackPlayContain>
             <S.TrackPlayLikeDis>
-                <S.TrackPlayLike onClick={() => onLikeClick(currentTrack.id)}>
-                    <S.TrackPlayLikeSvg $liked={liked} >
+                <S.TrackPlayLike $liked={liked} onClick={() => onLikeClick(currentTrack.id)}>
+                    <S.TrackPlayLikeSvg>
                         <LikeButton />
                     </S.TrackPlayLikeSvg>
                 </S.TrackPlayLike>

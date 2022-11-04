@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { handleVolume } from "../../../store/barSlice";
 import { VolumeImage } from "../PlayerButtons/PlayerButtons";
-import { HandlerContext } from "../../context/context";
 import { useTheme } from "../../../hook/useTheme";
 
 import * as S from './styles'
 
-function PlayerVolumeBlock() {
+function PlayerVolumeBlock({trackRef}) {
     const { theme } = useTheme()
-    const { volume, handleVolume } = useContext(HandlerContext)
+    const { volume } = useSelector(state => state.bar)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        trackRef.current.volume = volume / 100
+    }, [volume])
 
     return (
         <S.BarVolumeBlock>
@@ -19,7 +25,7 @@ function PlayerVolumeBlock() {
                         name="range"
                         theme={theme}
                         value={volume}
-                        onChange={evt => handleVolume(evt)}
+                        onChange={evt => dispatch(handleVolume(evt))}
                     />
                 </S.VolumeProgress>
             </S.VolumeContent>

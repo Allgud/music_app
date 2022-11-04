@@ -4,7 +4,7 @@ import * as S from './styles'
 
 const AudioBox = forwardRef((props, ref) => (
     <S.AudioBox>
-        <audio src={props.src} ref={ref} repeat={props.isRepeat ? true : undefined} preload='metadata' />
+        <audio src={props.src} ref={ref} repeat={props.isRepeat} preload='metadata' />
     </S.AudioBox>
 ))
 

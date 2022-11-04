@@ -103,7 +103,10 @@ const barSlice = createSlice({
         isVisible: false,
         currentTrack: null,
         isPlaying: false,
-        status: null
+        status: null,
+        onRepeat: false,
+        volume: 50,
+        seekTime: 0
     },
     reducers: {
         showBarPlayer(state) {
@@ -111,7 +114,16 @@ const barSlice = createSlice({
         },
         togglePlayPause(state) {
             state.isPlaying = !state.isPlaying
-        }
+        },
+        toggleRepeat(state) {
+            state.onRepeat = !state.onRepeat
+        },
+        handleVolume(state, action) {
+            state.volume = action.payload.target.value
+        },
+        setSeekTime(state, action) {
+            state.seekTime = action.payload
+        },
     },
     extraReducers: {
         [getCurrentTrack.pending]: (state) => {
@@ -130,5 +142,11 @@ const barSlice = createSlice({
     }
 })
 
-export const { showBarPlayer, togglePlayPause } = barSlice.actions
+export const { 
+    showBarPlayer, 
+    togglePlayPause, 
+    toggleRepeat,
+    handleVolume,
+    setSeekTime
+} = barSlice.actions
 export default barSlice.reducer
