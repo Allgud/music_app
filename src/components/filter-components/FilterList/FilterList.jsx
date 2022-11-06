@@ -1,41 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { sortByFilter, resetFilters } from '../../../store/trackSlice'
 import FilterByYear from "../FilterByYear";
 import FilterListItem from '../FilterListItem'
 import { useTheme } from '../../../hook/useTheme'
-import { FILTERS } from "../../../constants/constants";
-import * as S from "./styles";
+import * as S from "./styles"
 
-function FilterList({ filter }) {
-   const [ state, setState ] = useState([])
-   const [activeSelector, setActiveSelector] = useState('')
-   const { theme } = useTheme()
-   
-   const handleFilters = string => { 
-     const keys = Object.keys(FILTERS)
-     const chooseFilter = keys.filter(el => string.split('-').includes(el))
-     const activeFilter = chooseFilter[0]
-     setActiveSelector(activeFilter) 
-     setState(FILTERS[activeFilter])
-   }
+function FilterList({selector}) {
+    const activeFilter = selector.split('-')[1] 
+    const { filters } = useSelector(state => state.tracks)
+    const { theme } = useTheme()
+    const [ pickedFilters, setPikedFilters ] = useState([])
+    const dispatch = useDispatch()
 
-   useEffect(() => {
-    handleFilters(filter)
-   }, [state])
+    const pickFilters = (text) => {
+      if(activeFilter === 'year'){
+        setPikedFilters(text.split())
+        return
+      }
+      setPikedFilters(prev => [...prev, text])
+    }
 
-   return (
-    <>
-        {
-            activeSelector === 'year' 
-            ? <FilterByYear buttons={state}/> 
-            : <S.FilterList
-                theme={theme}
-                $activeSelector={activeSelector}
-              >
-                {state.map(el => <FilterListItem key={el.id} title={el.title} />)}
-            </S.FilterList>
-        }
-    </>
-   ) 
+    useEffect(() => {
+      dispatch(sortByFilter({pickedFilters, activeFilter}));
+    }, [pickedFilters])
+
+    useEffect(() => {
+      dispatch(resetFilters())
+    }, [activeFilter])
+
+    return (
+      <>
+          {
+              activeFilter === 'year' 
+              ? <FilterByYear onClickTitle={pickFilters}/> 
+              : <S.FilterList
+                  theme={theme}
+                  $activeSelector={activeFilter}
+                >
+                  {filters[activeFilter].map(el => <FilterListItem key={el} title={el} onClickTitle={pickFilters}/>)}
+              </S.FilterList>
+          }
+      </>
+    ) 
 }
 
 export default FilterList

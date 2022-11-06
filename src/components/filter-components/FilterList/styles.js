@@ -14,4 +14,5 @@ export const FilterList = styled.ul`
     top: 50px;
     left: ${(props) => props.$activeSelector === 'author' ? '90px' : '390px'};
     overflow: auto;
+    z-index: 100;
 `

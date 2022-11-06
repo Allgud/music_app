@@ -1,38 +1,19 @@
-export const TRACKS = [
-    {id: "0", title: 'Guilt', author: 'Nero', album: 'Welcome Reality', year: '2020', time: '4:44', advInfo: ''},
-    {id: "1", title: 'Elektro', author: 'Dynoro, Outwork, Mr. Gee', album: 'Elektro', year: '2020', time: '2:22', advInfo: ''},
-    {id: "2", title: 'I’m Fire', author: 'Ali Bakgor', album: 'I’m Fire', year: '2020', time: '2:22', advInfo: ''},
-    {id: "3", title: 'Non Stop', author: 'Стоункат, Psychopath', album: 'Non Stop', year: '2020', time: '4:12', advInfo: ' (Remix)'},
-    {id: "4", title: 'Run Run', author: 'Jaded, Will Clarke, AR/CO', album: 'Run Run', year: '2020', time: '2:54', advInfo: ' (feat. AR/CO)'},
-    {id: "5", title: 'Eyes on Fire', author: 'Blue Foundation, Zeds Dead', album: 'Eyes on Fire', year: '2020', time: '5:20', advInfo: ' (Zeds Dead Remix)'},
-    {id: "6", title: 'Mucho Bien', author: 'HYBIT, Mr. Black, Offer Nissim, Hi Profile', album: 'Mucho Bien', year: '2020', time: '3:41', advInfo: ' (Hi Profile Remix)'},
-    {id: "7", title: 'Knives n Cherries', author: 'minthaze', album: 'Captivating', year: '2020', time: '1:48', advInfo: ''},
-    {id: "8", title: 'How Deep Is Your Love', author: 'Calvin Harris, Disciples', album: 'How Deep Is Your Love', year: '2020', time: '3:32', advInfo: ''},
-    {id: "9", title: 'Morena', author: 'Tom Boxer', album: 'Soundz Made in Romania', year: '2020', time: '3:36', advInfo: ''},
-]
+export const SKELETONS_COUNT = 10
 
-export const FILTERS = {
-    author: [
-        {id: 1, title: 'Michael Jackson'}, 
-        {id: 2, title: 'Frank Sinatra'}, 
-        {id: 3, title: 'Calvin Harris'}, 
-        {id: 4, title: 'Evanescense'}, 
-        {id: 5, title: 'Jay-Z'}, 
-        {id: 6, title: 'Clouns'}
-    ],
-    genre: [
-        {id: 1, title: 'Rock'},
-        {id: 2, title: 'Hip-Hop'},
-        {id: 3, title: 'Pop'},
-        {id: 4, title: 'Techno'}, 
-        {id: 5, title: 'Indi'},
-        {id: 6, title: 'R & B'}
-    ],
-    year: [
-        {id: 1, title: 'Более новые'}, 
-        {id: 2, title: 'Более старые'}
-    ]
+export const convertDuration = (duration) => {
+    const minutes = Math.floor(duration / 60).toString()
+    const seconds = Math.floor(duration % 60).toString()
+    const checkedSeconds = () => ((seconds.length) === 1 ? `${seconds}0` : seconds)
+    return `${minutes}:${checkedSeconds()}`
 }
+
+export const FILTERS_BY_YEAR = [ 'Более новые', 'Более старые' ]
+
+export const FILTER_BUTTONS = [
+    { id: 1, selector: 'button-author', content: 'исполнителю', isActive: false},
+    { id: 2, selector: 'button-year', content: 'году выпуска', isActive: false},
+    { id: 3, selector: 'button-genre', content: 'жанру', isActive: false}
+]
 
 export const COLLECTIONS_ITEMS = [
     {id: 1, title: 'Новинки недели'},
@@ -53,6 +34,12 @@ export const PAGES_TITLES = {
     '/': 'Треки',
     '/collections': "Мои подборки" 
 }
+
+export const NAV_LINKS  = [
+    {link: "/", title: "Главное" }, 
+    {link: "/", title: "Мой плейлист" }, 
+    {link: "/auth", title: "Выйти" }
+]
 
 const COLORS = {
     'smoke-white': '#F5F5F5',
@@ -112,3 +99,8 @@ export const themes = {
     }
 }
 
+const BASE_URL = 'http://51.250.95.23:8000'
+    
+export const TRACKS_API = `${BASE_URL}/catalog/track`
+
+export const USER_API = `${BASE_URL}/user`

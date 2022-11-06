@@ -45,7 +45,7 @@ export const RepeatBtn = styled(Btn)`
 export const RepeatBtnSvg = styled.svg`
     width: 18px;
     height: 12px;
-    fill: transparent;
+    fill: ${props => props.$repeat ? '#B672FF' : 'transparent'};
     stroke: ${props => props.theme.buttonFill};
 `
 

@@ -55,6 +55,7 @@ export const TrackPlayAlbumLink = styled.a`
     font-weight: 400;
     font-size: 13px;
     line-height: 24px;
+    white-space: nowrap;
     color: ${props => props.theme.color};
 `
 
@@ -62,29 +63,32 @@ export const TrackPlayLikeDis = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 26%;
+    margin-left: 50%;
 `
-export const TrackPlayLike = styled.div`
+export const TrackPlayLike = styled.button`
     padding: 5px;
-    
-    &:hover svg{
-        fill: transparent;
-        stroke: #ACACAC;
-        cursor: pointer; 
-    }
-
-    &:active svg {
-        fill: transparent;
-        stroke: #${props => props.theme.color};
-        cursor: pointer; 
-    }
+    border: none;
+    outline: none;
+    background: transparent;
+    fill: ${props => props.$liked ? '#696969' : 'transparent'}
 `
 
 export const TrackPlayLikeSvg = styled.svg`
     width: 14px;
     height: 12px;
-    fill: transparent;
     stroke: #696969;
+
+    &:hover{
+        fill: transparent;
+        stroke: #ACACAC;
+        cursor: pointer; 
+    }
+
+    &:active {
+        fill: transparent;
+        stroke: #${props => props.theme.color};
+        cursor: pointer; 
+    }
 `
 
 export const TrackPlayDislike = styled(TrackPlayLike)`

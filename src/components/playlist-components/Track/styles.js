@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlayListItem = styled.div`
+export const PlayListItem = styled.li`
     width: 100%;
     display: block;
     margin-bottom: 12px;   
@@ -101,7 +101,7 @@ export const TrackTimeSvg = styled.svg`
     width: 14px;
     height: 12px;
     margin-right: 17px;
-    fill: transparent;
+    fill: ${props => props.$liked ? '#696969' : 'transparent'};
     stroke: #696969;
 `
 

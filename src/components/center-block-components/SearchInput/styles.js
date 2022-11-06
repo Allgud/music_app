@@ -19,4 +19,9 @@ export const SearchInput = styled.input`
         font-size: 16px;
         line-height: 24px;
     }
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
 `

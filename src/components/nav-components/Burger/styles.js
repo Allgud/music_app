@@ -6,7 +6,11 @@ export const NavBurger = styled.div`
     padding: 13px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
+    
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 export const BurgerLine = styled.span`

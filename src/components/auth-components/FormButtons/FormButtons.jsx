@@ -3,19 +3,19 @@ import * as S from './styles'
 
 export const EnterButton = () => (
     <S.EnterButton
-        type='submit'
+        type='button'
     >
-        Войти
+        
     </S.EnterButton>
 )
 
 export function SignUpButton({flag}) {
     return (
-        <S.SignUpButton
-            type="submit"
+        <S.SignUpButton 
+            type="button"
             $flag={flag}
         >
-            Зарегистрироваться
+            
         </S.SignUpButton>
     )
 }

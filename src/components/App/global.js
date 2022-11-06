@@ -42,7 +42,8 @@ const GStyles = createGlobalStyle`
         width: 100%;
         height: 100%;
         font-family: 'StratosSkyeng', sans-serif;
-        color: ${props => props.theme.color}
+        background: ${props => props.theme.containerBack};
+        color: ${props => props.theme.color};
     }
 `
 

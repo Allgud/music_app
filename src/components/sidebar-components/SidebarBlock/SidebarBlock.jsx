@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { LoadingContext } from '../../context/context'
+import React from 'react'
+import { useSelector } from 'react-redux';
 import SidebarButton from "../SidebarButton";
 import SidebarButtonSkeleton from "../SidebarButtonSkeleton";
 
@@ -12,15 +12,16 @@ import * as S from './styles'
 const list = [ img1, img2, img3 ]
 
 function SidebarBlock() {
-    const loading = useContext(LoadingContext)
-
+    const status = useSelector(state => state.tracks.status)
     const sidebarSkeletons = Array(list.length).fill('', 0, 3).map((_,i) => (<SidebarButtonSkeleton key={i}/>))
-    const listButtons = list.map((elem, i) => (<SidebarButton key={i + 1} img={elem} />))
 
     return (
         <S.SidebarBlock>
             <S.SidebarList>
-                {loading ? sidebarSkeletons : listButtons}
+                {
+                    status === 'loading' 
+                    ? sidebarSkeletons 
+                    : list.map((elem, i) => (<SidebarButton key={i + 1} img={elem} />))}
             </S.SidebarList>
         </S.SidebarBlock>
     )

@@ -1,38 +1,36 @@
-import React, { useRef } from "react";
-import { StatusProvider } from '../../../providers/StatusProvider'
+import React, { useEffect, useRef } from "react";
+import { useSelector } from 'react-redux'
 import { useTheme } from '../../../hook/useTheme'
-import { HandlerContext } from "../../context/context";
 import BarPlayerProgress from "../BarPlayerProgress";
 import BarPlayerBlock from "../BarPlayerBlock";
 import * as S from './styles'
 
 const Bar = () => {
+    const audio = useRef()
+    const { isPlaying, seekTime } = useSelector(state => state.bar)
     const { theme } = useTheme()
-    const trackRef = useRef()
 
-    const handlePlayPauseClick = (bool) => {
-        if(bool) {
-            trackRef.current.play()
+    useEffect(() => {
+        if (isPlaying) {
+            audio.current.play()
             return
         }
-
-        if(!bool) {
-            trackRef?.current?.pause()
-            return
+        if (!isPlaying) {
+            audio.current.pause()
         }
-    }
+    }, [isPlaying])
+
+    useEffect(() => {
+        audio.current.currentTime = seekTime
+    }, [seekTime])
 
     return (
-        <StatusProvider>
-            <S.Bar theme={theme}>
-                <S.BarContent>
-                    <BarPlayerProgress audio={trackRef}/>
-                    <HandlerContext.Provider value={{trackRef, handlePlayPauseClick}}>
-                        <BarPlayerBlock />
-                    </HandlerContext.Provider>
-                </S.BarContent>
-            </S.Bar>
-        </StatusProvider>
+        <S.Bar theme={theme}>
+            <S.BarContent>
+                <BarPlayerProgress trackRef={audio} />
+                <BarPlayerBlock trackRef={audio} />
+            </S.BarContent>
+        </S.Bar>
     )
 }
 

@@ -5,7 +5,9 @@ export const PlayListTitle = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    position: absolute;
+    top: 64px;
+    left: 0;
 `
 
 const PlayListTitleCol = styled.div`

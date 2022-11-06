@@ -1,21 +1,21 @@
-import React, {useContext} from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import BarPlayer from '../BarPlayer';
 import PlayerVolumeBlock from "../PlayerVolumeBlock";
 import AudioBox from '../AudioBox'
 import * as S from './styles'
-import { HandlerContext } from '../../context/context'
-import src from '../AudioBox/audio/Papa Roach - Dead Cell.mp3'
 
-function BarPlayerBlock() {
-    const { trackRef } = useContext(HandlerContext)
-
+function BarPlayerBlock({trackRef}) {
+    const { onRepeat, currentTrack } = useSelector(state => state.bar)
+    
     return (
         <S.BarPlayerBlock>
             <BarPlayer />
-            <PlayerVolumeBlock />
+            <PlayerVolumeBlock trackRef={trackRef}/>
             <AudioBox 
-                src={src}
+                src={currentTrack?.track_file}
                 ref={trackRef}
+                isRepeat={`${onRepeat}`}
             />
         </S.BarPlayerBlock>
     )

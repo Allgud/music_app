@@ -6,6 +6,7 @@ export const SidebarPersonal = styled.div`
     align-items: center;
     justify-content: flex-end;
     padding: 12px 0 15px 0;
+    gap: 10px;
 `
 
 export const SidebarPersonalName = styled.p`

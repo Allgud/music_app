@@ -18,6 +18,6 @@ export const EnterButton = styled(Button)`
 `
 
 export const SignUpButton = styled(Button)`
-    color: ${(props) => props.$flag ? '#000000' : '#${props => props.theme.color}'};
+    color: ${(props) => props.$flag ? '#000000' : '#FFFFFF'};
     background: ${(props) => props.$flag ? '#${props => props.theme.color}' : '#580EA2'};
 `

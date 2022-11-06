@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../hook/useAuth";
+import { useSelector } from 'react-redux'
 
 function RequireAuth({children}) {
-    const { auth } = useAuth()
-
-    if(!auth) {
+    const { isAuth } = useSelector(state => state.user)
+    
+    if(!isAuth) {
         return <Navigate to={'/auth'} />
     }
 

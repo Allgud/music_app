@@ -5,7 +5,7 @@ function NotFound() {
     return (
         <>
             <h1>Страница не найдена</h1>
-            <NavMenuItemLink to={'/tracks'}>Вернуться на главную</NavMenuItemLink>
+            <NavMenuItemLink to={'/'}>Вернуться на главную</NavMenuItemLink>
         </>
     )
 }

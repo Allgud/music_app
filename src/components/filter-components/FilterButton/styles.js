@@ -11,6 +11,7 @@ export const FilterButton = styled.div`
     border-radius: 60px;
     padding: 6px 20px;
     cursor: pointer;
+    white-space: nowrap;
 
     &:hover {
         border-color: #D9B6FF;

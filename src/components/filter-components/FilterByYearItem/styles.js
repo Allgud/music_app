@@ -6,7 +6,16 @@ export const FilterByYearItem = styled.div`
     color: ${props => props.theme.color};
 
     & label {
+        cursor: pointer;
         white-space: nowrap;
+
+        &:hover {
+            color: #D9B6FF;
+        }
+    }
+
+    input:checked + label {
+        color: #AD61FF;
     }
 }
 `

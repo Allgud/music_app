@@ -1,21 +1,29 @@
-import React, {useContext} from "react";
-import { LoadingContext } from '../../context/context'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTracks } from '../../../store/trackSlice'
 import Track from "../Track";
 import TrackSkeleton from "../TrackSkeleton";
 import * as S from "./styles";
-
-import { TRACKS }from '../../../constants/constants'
+import { SKELETONS_COUNT } from '../../../constants/constants'
 
 function PlayList() {
-    const loading = useContext(LoadingContext)
-
-    const skeletons = Array(TRACKS.length).fill("", 0, 10).map((_, i) => <TrackSkeleton key={i}/>)
-    const trackList = TRACKS.map(elem => (<Track key={elem.id} track={elem} />))
+    const status = useSelector(state => state.tracks.status)
+    const tracks = useSelector(state => state.tracks.tracks)
+    const dispatch = useDispatch()
+    const skeletons = Array(SKELETONS_COUNT).fill("", 0, SKELETONS_COUNT).map((_, i) => <TrackSkeleton key={i}/>)
    
+    useEffect(() => {
+        dispatch(getAllTracks())
+    }, [])
+
     return (
         <S.PlayList>
-            {loading ? skeletons : trackList }
-        </S.PlayList>
+            {
+                status === 'loading'
+                ? skeletons 
+                : tracks.map(el => <Track key={el.id} track={el}/>) 
+            }
+        </S.PlayList> 
     )
 }
 
