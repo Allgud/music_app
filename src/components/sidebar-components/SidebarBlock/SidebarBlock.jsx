@@ -1,5 +1,6 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { getCollections } from '../../../store/collectionsSlice'; 
 import SidebarButton from "../SidebarButton";
 import SidebarButtonSkeleton from "../SidebarButtonSkeleton";
 
@@ -12,8 +13,13 @@ import * as S from './styles'
 const list = [ img1, img2, img3 ]
 
 function SidebarBlock() {
-    const status = useSelector(state => state.tracks.status)
+    const { status } = useSelector(state => state.tracks)
     const sidebarSkeletons = Array(list.length).fill('', 0, 3).map((_,i) => (<SidebarButtonSkeleton key={i}/>))
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getCollections())
+    }, [])
 
     return (
         <S.SidebarBlock>

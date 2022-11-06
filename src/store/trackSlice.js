@@ -38,6 +38,9 @@ const trackSlice = createSlice({
         },
     },
     reducers: {
+        setTracks(state, action) {
+            state.tracks = action.payload
+        },
         searchTracks(state, action) {
             state.tracks = state.allTracks.filter(el => el.name.toLowerCase().match(action.payload))
         },
@@ -72,8 +75,8 @@ const trackSlice = createSlice({
         },
         [getAllTracks.fulfilled]: (state, action) => {
             state.status = 'resolved'
-            state.allTracks = action.payload
             state.tracks = action.payload
+            state.allTracks = action.payload
             state.filters.genre = Array.from(new Set(action.payload.map(el => el.genre)))
             state.filters.author = Array.from(new Set(action.payload.map(el => el.author)))
         },
@@ -83,5 +86,5 @@ const trackSlice = createSlice({
     }
 })
 
-export const { sortByFilter, resetFilters, searchTracks, shuffleTracks } = trackSlice.actions
+export const { setTracks, sortByFilter, resetFilters, searchTracks, shuffleTracks } = trackSlice.actions
 export default trackSlice.reducer

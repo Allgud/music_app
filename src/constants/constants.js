@@ -32,14 +32,8 @@ export const getRandomColor = () => {
 
 export const PAGES_TITLES = {
     '/': 'Треки',
-    '/collections': "Мои подборки" 
+    '/collections': "Мои подборки", 
 }
-
-export const NAV_LINKS  = [
-    {link: "/", title: "Главное" }, 
-    {link: "/", title: "Мой плейлист" }, 
-    {link: "/auth", title: "Выйти" }
-]
 
 const COLORS = {
     'smoke-white': '#F5F5F5',
@@ -100,6 +94,8 @@ export const themes = {
 }
 
 const BASE_URL = 'http://51.250.95.23:8000'
+
+export const COLLECTIONS_API = `${BASE_URL}/catalog/selection`
     
 export const TRACKS_API = `${BASE_URL}/catalog/track`
 
