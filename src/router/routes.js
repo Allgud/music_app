@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from '../components/Layout'
 import RequireAuth from '../hoc/RequireAuth'
 import AuthPage from '../pages/auth'
+import CollectionPlaylist from '../pages/collection'
 import CollectionsPage from '../pages/collections'
 import MainPage from '../pages/main'
 import NotFound from '../pages/not-found' 
@@ -20,6 +21,11 @@ const AppRoutes = () => (
             <Route path='collections' element={
                 <RequireAuth>
                     <CollectionsPage />
+                </RequireAuth>
+            }/>
+            <Route path='collections/collection/:id' element={
+                <RequireAuth>
+                    <CollectionPlaylist />
                 </RequireAuth>
             }/>
             <Route path='*' element={<NotFound />} />

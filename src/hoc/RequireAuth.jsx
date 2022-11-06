@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 function RequireAuth({children}) {
     const { isAuth } = useSelector(state => state.user)
-    
+
     if(!isAuth) {
         return <Navigate to={'/auth'} />
     }

@@ -1,19 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import CollectionsListItem from '../CollectionsListItem'
-import { COLLECTIONS_ITEMS, getRandomColor } from "../../../constants/constants";
+import { getRandomColor } from "../../../constants/constants"
 
 import * as S from './styles'
 
 const CollectionsList = () => {
-    
+    const { collectionsList } = useSelector(state => state.collections)
 
     return (
         <S.CollectionsList>
             {
-                COLLECTIONS_ITEMS.map(el => (
+                collectionsList.map(el => (
                     <CollectionsListItem 
-                        key={el.id} 
-                        title={el.title} 
+                        key={el}
+                        id={el} 
+                        title={el} 
                         backgroundColor={getRandomColor()}
                 />))
             }
