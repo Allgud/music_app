@@ -9,7 +9,7 @@ export const getCurrentTrack = createAsyncThunk(
         try {
             const response = await axios.get(`${TRACKS_API}/${id}/`)
             dispatch(showBarPlayer())
-
+        
             return response.data
         } catch (error) {
             return rejectWithValue(error.response)
